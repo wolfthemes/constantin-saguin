@@ -1,4 +1,4 @@
-name: Deploy wolf-store to SiteGround
+name: Deploy constantin-saguin to SiteGround
 
 on:
   push:
@@ -18,5 +18,5 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /home/customer/www/constantin.wolfthemes.com/public_html
+            cd /home/customer/www/constantin.saguin.com/public_html
             git pull origin master
