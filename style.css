@@ -148,6 +148,7 @@ h1 {
 	letter-spacing: -.02em;
 	color: var(--text);
 	margin-bottom: 1.5rem;
+	text-shadow: 0 2px 24px rgba(0,0,0,.6), 0 1px 4px rgba(0,0,0,.4);
 }
 h1 span { color: var(--accent); }
 
