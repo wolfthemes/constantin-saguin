@@ -419,45 +419,37 @@ float warp(vec2 p) {
   return vnoise(p + 2.2 * q + u_t * 0.04);
 }
 
-// Film grain
-float grain(vec2 uv, float t) {
-  return fract(sin(dot(uv * u_r, vec2(12.9898, 78.233)) + t * 37.0) * 43758.5453);
-}
-
 void main() {
   vec2 uv  = gl_FragCoord.xy / u_r;
   float ar = u_r.x / u_r.y;
-  vec2 p   = uv * vec2(ar, 1.0) * 2.8;
+  vec2 p   = uv * vec2(ar, 1.0) * 1.8; // larger scale = broader sweeping curves
 
-  // Mouse ripple disturbance
-  vec2  mp   = u_m * vec2(ar, 1.0) * 2.8;
+  // Mouse ripple — wider radius, stronger pull
+  vec2  mp   = u_m * vec2(ar, 1.0) * 1.8;
   float md   = length(p - mp);
-  float pull = smoothstep(1.4, 0.0, md);
-  vec2  pw   = p + pull * 0.25 * vec2(sin(md * 7.0 - u_t * 1.3), cos(md * 7.0 - u_t * 1.3));
+  float pull = smoothstep(2.2, 0.0, md);
+  vec2  pw   = p + pull * 0.55 * vec2(sin(md * 5.5 - u_t * 1.4), cos(md * 5.5 - u_t * 1.4));
 
   float f = warp(pw);
 
-  // Surface gradient magnitude → adds sheen to peaks
-  float eps = 0.018;
+  // Gradient → ribbon highlights (specular sheen on ridges)
+  float eps = 0.02;
   float dx  = warp(pw + vec2(eps, 0.0)) - warp(pw - vec2(eps, 0.0));
   float dy  = warp(pw + vec2(0.0, eps)) - warp(pw - vec2(0.0, eps));
-  float grad = length(vec2(dx, dy)) * 3.0;
+  float grad = length(vec2(dx, dy));
 
-  // Grayscale: very dark base, surface variation in dark greys
-  float lum = f * 0.18 + grad * 0.10;
+  // Silk: crush darks with pow(), let peaks glow bright
+  float lum = pow(f, 2.8) * 0.50    // dark base — bright only at peaks
+            + grad * 0.30;           // ridge sheen
 
-  // Mouse: brightens surface near cursor
+  // Mouse glow
   float inside = step(-0.01, u_m.x) * step(u_m.x, 1.01) * step(-0.01, u_m.y);
-  lum += pull * 0.22 * inside;
+  lum += pull * 0.40 * inside;
 
   // Vignette
-  lum *= 1.0 - length(uv - 0.5) * 0.6;
+  lum *= 1.0 - length(uv - 0.5) * 0.55;
 
-  // Film grain
-  float g = grain(uv, u_t) * 0.06 - 0.03;
-  lum = clamp(lum + g, 0.0, 1.0);
-
-  gl_FragColor = vec4(vec3(lum), 1.0);
+  gl_FragColor = vec4(vec3(clamp(lum, 0.0, 1.0)), 1.0);
 }`;
 
     function mkShader(type, src) {
@@ -504,8 +496,8 @@ void main() {
     resize();
 
     function loop(t) {
-      mx += (tx - mx) * 0.055;
-      my += (ty - my) * 0.055;
+      mx += (tx - mx) * 0.12;
+      my += (ty - my) * 0.12;
       gl.uniform1f(uT, t * 0.001);
       gl.uniform2f(uM, mx, my);
       gl.uniform2f(uR, canvas.width, canvas.height);
