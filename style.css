@@ -261,8 +261,8 @@ h1 span { color: var(--accent); }
 	font-weight: 500;
 }
 .btn-primary:hover { background: #d4b880; border-color: #d4b880; }
-.btn-ghost { color: var(--dim); }
-.btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+.btn-ghost { color: var(--text); border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.04); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.btn-ghost:hover { background: #fff; border-color: #fff; color: #0b0c0e; }
 
 /* ── Section shared ── */
 section { border-bottom: 1px solid var(--border); padding: 80px 0; }

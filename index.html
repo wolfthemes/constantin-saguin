@@ -422,32 +422,40 @@ float warp(vec2 p) {
 void main() {
   vec2 uv  = gl_FragCoord.xy / u_r;
   float ar = u_r.x / u_r.y;
-  vec2 p   = uv * vec2(ar, 1.0) * 3.2; // higher scale = more visible waves
+  vec2 p   = uv * vec2(ar, 1.0) * 3.2;
 
-  // Mouse ripple
+  // Mouse ripple — wider influence radius for a light-source feel
   vec2  mp   = u_m * vec2(ar, 1.0) * 3.2;
   float md   = length(p - mp);
-  float pull = smoothstep(2.2, 0.0, md) * u_s;
+  float pull = smoothstep(2.8, 0.0, md) * u_s;
   vec2  pw   = p + pull * 0.55 * vec2(sin(md * 5.5 - u_t * 1.4), cos(md * 5.5 - u_t * 1.4));
 
-  float f = warp(pw);
+  float f    = warp(pw);
 
-  // Gradient → soft sheen (lower contribution = blurrier)
-  float eps = 0.02;
-  float dx  = warp(pw + vec2(eps, 0.0)) - warp(pw - vec2(eps, 0.0));
-  float dy  = warp(pw + vec2(0.0, eps)) - warp(pw - vec2(0.0, eps));
+  float eps  = 0.018;
+  float dx   = warp(pw + vec2(eps, 0.0)) - warp(pw - vec2(eps, 0.0));
+  float dy   = warp(pw + vec2(0.0, eps)) - warp(pw - vec2(0.0, eps));
   float grad = length(vec2(dx, dy));
 
-  // Lower pow = softer/blurrier peaks; lower multipliers = darker overall
-  float lum = pow(f, 2.2) * 0.16
-            + grad * 0.06;
+  // Broader lum range so amber/gold highlights are visible
+  float lum = pow(f, 1.9) * 0.42 + grad * 0.28;
+  lum += pull * 0.24;
+  lum *= 1.0 - length(uv - 0.5) * 0.65;
 
-  lum += pull * 0.12;
+  // Palette: deep ocean teal → dark amber → bright sunset gold
+  vec3 deep  = vec3(0.028, 0.082, 0.150);  // deep shadow teal
+  vec3 ocean = vec3(0.055, 0.170, 0.270);  // mid dark teal water
+  vec3 amber = vec3(0.600, 0.310, 0.040);  // warm amber
+  vec3 gold  = vec3(0.920, 0.660, 0.140);  // bright crest gold
 
-  // Stronger vignette for darker corners
-  lum *= 1.0 - length(uv - 0.5) * 0.75;
+  vec3 col = mix(deep,  ocean, smoothstep(0.00, 0.22, lum));
+  col      = mix(col,   amber, smoothstep(0.18, 0.52, lum));
+  col      = mix(col,   gold,  smoothstep(0.46, 1.00, lum));
 
-  gl_FragColor = vec4(vec3(clamp(lum, 0.0, 1.0)), 1.0);
+  // Mouse: golden light-source bloom
+  col += vec3(0.90, 0.56, 0.08) * pull * 0.45;
+
+  gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
 }`;
 
     function mkShader(type, src) {
