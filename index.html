@@ -401,7 +401,7 @@
     const VS = `attribute vec2 a;void main(){gl_Position=vec4(a,0,1);}`;
     const FS = `
 precision highp float;
-uniform float u_t;
+uniform float u_t, u_s;
 uniform vec2  u_m, u_r;
 
 float hash(vec2 p) {
@@ -427,7 +427,7 @@ void main() {
   // Mouse ripple
   vec2  mp   = u_m * vec2(ar, 1.0) * 3.2;
   float md   = length(p - mp);
-  float pull = smoothstep(2.2, 0.0, md);
+  float pull = smoothstep(2.2, 0.0, md) * u_s;
   vec2  pw   = p + pull * 0.55 * vec2(sin(md * 5.5 - u_t * 1.4), cos(md * 5.5 - u_t * 1.4));
 
   float f = warp(pw);
@@ -442,8 +442,7 @@ void main() {
   float lum = pow(f, 2.2) * 0.16
             + grad * 0.06;
 
-  float inside = step(-0.01, u_m.x) * step(u_m.x, 1.01) * step(-0.01, u_m.y);
-  lum += pull * 0.12 * inside;
+  lum += pull * 0.12;
 
   // Stronger vignette for darker corners
   lum *= 1.0 - length(uv - 0.5) * 0.75;
@@ -473,17 +472,22 @@ void main() {
     gl.vertexAttribPointer(aLoc, 2, gl.FLOAT, false, 0, 0);
 
     const uT = gl.getUniformLocation(prog, 'u_t');
+    const uS = gl.getUniformLocation(prog, 'u_s');
     const uM = gl.getUniformLocation(prog, 'u_m');
     const uR = gl.getUniformLocation(prog, 'u_r');
 
-    let mx = -2, my = -2, tx = -2, ty = -2;
+    let mx = 0.5, my = 0.5, tx = 0.5, ty = 0.5;
+    let ms = 0, msTarget = 0; // mouse strength: fades in/out smoothly
     const heroEl = document.getElementById('hero');
     heroEl.addEventListener('mousemove', e => {
       const r = heroEl.getBoundingClientRect();
       tx = (e.clientX - r.left) / r.width;
       ty = 1.0 - (e.clientY - r.top) / r.height;
+      msTarget = 1;
     }, { passive: true });
-    heroEl.addEventListener('mouseleave', () => { tx = -2; ty = -2; });
+    heroEl.addEventListener('mouseleave', () => {
+      msTarget = 0; // fade out — don't move tx/ty so there's no position jump
+    });
 
     function resize() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -497,7 +501,9 @@ void main() {
     function loop(t) {
       mx += (tx - mx) * 0.12;
       my += (ty - my) * 0.12;
+      ms += (msTarget - ms) * 0.07;
       gl.uniform1f(uT, t * 0.001);
+      gl.uniform1f(uS, ms);
       gl.uniform2f(uM, mx, my);
       gl.uniform2f(uR, canvas.width, canvas.height);
       gl.drawArrays(gl.TRIANGLES, 0, 6);
