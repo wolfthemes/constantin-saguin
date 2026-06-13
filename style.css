@@ -196,8 +196,8 @@ h1 span { color: var(--accent); }
 .hero-bio {
 	max-width: 620px;
 	color: var(--body);
-	font-size: 14px;
-	line-height: 1.8;
+	font-size: 19px;
+	line-height: 1.75;
 	margin-bottom: 2.5rem;
 }
 
@@ -429,9 +429,9 @@ h3 {
 /* ── Contact ── */
 .contact-body { max-width: 640px; }
 .contact-sub {
-	font-size: 15px;
+	font-size: 19px;
 	color: var(--body);
-	line-height: 1.8;
+	line-height: 1.75;
 	margin-bottom: 2.5rem;
 }
 .contact-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
