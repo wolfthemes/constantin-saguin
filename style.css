@@ -12,6 +12,7 @@
 	--accent2:  #b0cbf5;
 	--mono:     'DM Mono', monospace;
 	--sans:     'Syne', sans-serif;
+	--urban:    'Urbanist', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -19,8 +20,8 @@ html { scroll-behavior: smooth; }
 body {
 	background: var(--bg);
 	color: var(--body);
-	font-family: var(--mono);
-	font-size: 14px;
+	font-family: var(--urban);
+	font-size: 15px;
 	line-height: 1.7;
 	overflow-x: hidden;
 }
