@@ -419,12 +419,9 @@ float warp(vec2 p) {
   return vnoise(p + 2.2 * q + u_t * 0.04);
 }
 
-// Dark oil iridescence: purple -> blue -> teal cycle
-vec3 oilColor(float t) {
-  float r = 0.18 * (0.5 + 0.5 * cos(t * 6.283 + 0.00));
-  float g = 0.12 * (0.5 + 0.5 * cos(t * 6.283 + 2.50));
-  float b = 0.30 * (0.5 + 0.5 * cos(t * 6.283 + 1.50));
-  return vec3(r, g, b) + vec3(0.02, 0.015, 0.028);
+// Film grain
+float grain(vec2 uv, float t) {
+  return fract(sin(dot(uv * u_r, vec2(12.9898, 78.233)) + t * 37.0) * 43758.5453);
 }
 
 void main() {
@@ -440,23 +437,27 @@ void main() {
 
   float f = warp(pw);
 
-  // Surface gradient → iridescence angle
+  // Surface gradient magnitude → adds sheen to peaks
   float eps = 0.018;
   float dx  = warp(pw + vec2(eps, 0.0)) - warp(pw - vec2(eps, 0.0));
   float dy  = warp(pw + vec2(0.0, eps)) - warp(pw - vec2(0.0, eps));
-  float ang = atan(dy, dx) / 6.283 + 0.5;
+  float grad = length(vec2(dx, dy)) * 3.0;
 
-  float colorT = ang + f * 0.55;
-  vec3 col = oilColor(colorT);
+  // Grayscale: very dark base, surface variation in dark greys
+  float lum = f * 0.18 + grad * 0.10;
 
-  // Stronger iridescence near cursor
+  // Mouse: brightens surface near cursor
   float inside = step(-0.01, u_m.x) * step(u_m.x, 1.01) * step(-0.01, u_m.y);
-  col += oilColor(colorT + 0.18) * pull * 0.55 * inside;
+  lum += pull * 0.22 * inside;
 
-  // Subtle vignette
-  col *= 1.0 - length(uv - 0.5) * 0.55;
+  // Vignette
+  lum *= 1.0 - length(uv - 0.5) * 0.6;
 
-  gl_FragColor = vec4(col, 1.0);
+  // Film grain
+  float g = grain(uv, u_t) * 0.06 - 0.03;
+  lum = clamp(lum + g, 0.0, 1.0);
+
+  gl_FragColor = vec4(vec3(lum), 1.0);
 }`;
 
     function mkShader(type, src) {
