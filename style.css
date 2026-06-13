@@ -127,6 +127,16 @@ nav .wrap {
 	position: relative;
 	overflow: hidden;
 }
+#hero-gl {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+	will-change: transform;
+}
+@media (max-width: 640px) { #hero-gl { display: none; } }
 #hero .wrap {
 	position: relative;
 	z-index: 1;
@@ -272,7 +282,7 @@ h2 {
 	margin-bottom: .25rem;
 }
 .stat-value span { color: var(--accent); }
-.stat-label { font-size: 12px; color: var(--dim); letter-spacing: .04em; }
+.stat-label { font-size: 15px; color: var(--dim); letter-spacing: .04em; }
 
 /* ── Projects ── */
 .projects-list { display: flex; flex-direction: column; gap: 1px; }
@@ -351,7 +361,7 @@ h3 {
 	margin-bottom: .75rem;
 	letter-spacing: -.01em;
 }
-.project-desc { font-size: 13px; color: var(--body); line-height: 1.75; margin-bottom: 1.5rem; }
+.project-desc { font-size: 16px; color: var(--body); line-height: 1.75; margin-bottom: 1.5rem; }
 
 .project-stack { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem; }
 .tag {

@@ -78,6 +78,7 @@
 
 <!-- Hero -->
 <section id="hero">
+  <canvas id="hero-gl"></canvas>
   <div class="hero-grid-line"></div>
   <div class="hero-grid-line"></div>
   <div class="wrap">
@@ -390,6 +391,128 @@
     statObserver.observe(statList);
   }
 
+  // Oily liquid hero — iridescent WebGL shader
+  (function () {
+    const canvas = document.getElementById('hero-gl');
+    if (!canvas) return;
+    const gl = canvas.getContext('webgl', { alpha: false, antialias: false });
+    if (!gl) { canvas.style.display = 'none'; return; }
+
+    const VS = `attribute vec2 a;void main(){gl_Position=vec4(a,0,1);}`;
+    const FS = `
+precision highp float;
+uniform float u_t;
+uniform vec2  u_m, u_r;
+
+float hash(vec2 p) {
+  return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+}
+float vnoise(vec2 p) {
+  vec2 i = floor(p), f = fract(p);
+  f = f * f * (3.0 - 2.0 * f);
+  return mix(
+    mix(hash(i), hash(i + vec2(1,0)), f.x),
+    mix(hash(i + vec2(0,1)), hash(i + vec2(1,1)), f.x), f.y);
+}
+float warp(vec2 p) {
+  vec2 q = vec2(vnoise(p + u_t * 0.07), vnoise(p + vec2(5.2, 1.3) + u_t * 0.05));
+  return vnoise(p + 2.2 * q + u_t * 0.04);
+}
+
+// Dark oil iridescence: purple -> blue -> teal cycle
+vec3 oilColor(float t) {
+  float r = 0.18 * (0.5 + 0.5 * cos(t * 6.283 + 0.00));
+  float g = 0.12 * (0.5 + 0.5 * cos(t * 6.283 + 2.50));
+  float b = 0.30 * (0.5 + 0.5 * cos(t * 6.283 + 1.50));
+  return vec3(r, g, b) + vec3(0.02, 0.015, 0.028);
+}
+
+void main() {
+  vec2 uv  = gl_FragCoord.xy / u_r;
+  float ar = u_r.x / u_r.y;
+  vec2 p   = uv * vec2(ar, 1.0) * 2.8;
+
+  // Mouse ripple disturbance
+  vec2  mp   = u_m * vec2(ar, 1.0) * 2.8;
+  float md   = length(p - mp);
+  float pull = smoothstep(1.4, 0.0, md);
+  vec2  pw   = p + pull * 0.25 * vec2(sin(md * 7.0 - u_t * 1.3), cos(md * 7.0 - u_t * 1.3));
+
+  float f = warp(pw);
+
+  // Surface gradient → iridescence angle
+  float eps = 0.018;
+  float dx  = warp(pw + vec2(eps, 0.0)) - warp(pw - vec2(eps, 0.0));
+  float dy  = warp(pw + vec2(0.0, eps)) - warp(pw - vec2(0.0, eps));
+  float ang = atan(dy, dx) / 6.283 + 0.5;
+
+  float colorT = ang + f * 0.55;
+  vec3 col = oilColor(colorT);
+
+  // Stronger iridescence near cursor
+  float inside = step(-0.01, u_m.x) * step(u_m.x, 1.01) * step(-0.01, u_m.y);
+  col += oilColor(colorT + 0.18) * pull * 0.55 * inside;
+
+  // Subtle vignette
+  col *= 1.0 - length(uv - 0.5) * 0.55;
+
+  gl_FragColor = vec4(col, 1.0);
+}`;
+
+    function mkShader(type, src) {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS))
+        console.error('Shader:', gl.getShaderInfoLog(s));
+      return s;
+    }
+    const prog = gl.createProgram();
+    gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VS));
+    gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FS));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS))
+      console.error('Program:', gl.getProgramInfoLog(prog));
+    gl.useProgram(prog);
+
+    gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+    const aLoc = gl.getAttribLocation(prog, 'a');
+    gl.enableVertexAttribArray(aLoc);
+    gl.vertexAttribPointer(aLoc, 2, gl.FLOAT, false, 0, 0);
+
+    const uT = gl.getUniformLocation(prog, 'u_t');
+    const uM = gl.getUniformLocation(prog, 'u_m');
+    const uR = gl.getUniformLocation(prog, 'u_r');
+
+    let mx = -2, my = -2, tx = -2, ty = -2;
+    const heroEl = document.getElementById('hero');
+    heroEl.addEventListener('mousemove', e => {
+      const r = heroEl.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width;
+      ty = 1.0 - (e.clientY - r.top) / r.height;
+    }, { passive: true });
+    heroEl.addEventListener('mouseleave', () => { tx = -2; ty = -2; });
+
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width  = canvas.offsetWidth  * dpr;
+      canvas.height = canvas.offsetHeight * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+
+    function loop(t) {
+      mx += (tx - mx) * 0.055;
+      my += (ty - my) * 0.055;
+      gl.uniform1f(uT, t * 0.001);
+      gl.uniform2f(uM, mx, my);
+      gl.uniform2f(uR, canvas.width, canvas.height);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  })();
 </script>
 </body>
 </html>
