@@ -439,12 +439,11 @@ void main() {
   float grad = length(vec2(dx, dy));
 
   // Lower pow = softer/blurrier peaks; lower multipliers = darker overall
-  float lum = pow(f, 1.6) * 0.28
-            + grad * 0.12;
+  float lum = pow(f, 2.2) * 0.16
+            + grad * 0.06;
 
-  // Mouse glow — darker too
   float inside = step(-0.01, u_m.x) * step(u_m.x, 1.01) * step(-0.01, u_m.y);
-  lum += pull * 0.22 * inside;
+  lum += pull * 0.12 * inside;
 
   // Stronger vignette for darker corners
   lum *= 1.0 - length(uv - 0.5) * 0.75;
