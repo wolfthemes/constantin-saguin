@@ -9,6 +9,7 @@
   <meta name="author" content="Constantin Saguin" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://constantin.saguin.com/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23CC8C5A'>C</text></svg>" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -64,11 +65,14 @@
 <nav>
   <div class="wrap">
     <span class="nav-logo">Constantin Saguin</span>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
-      <a href="mailto:constantin.saguin@gmail.com">Contact</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
@@ -121,19 +125,19 @@
       </div>
       <div class="stat-list reveal reveal-delay-1">
         <div class="stat">
-          <div class="stat-value">40<span>+</span></div>
+          <div class="stat-value" data-count="40">40<span>+</span></div>
           <div class="stat-label">Premium themes & plugins shipped</div>
         </div>
         <div class="stat">
-          <div class="stat-value">36k<span>+</span></div>
+          <div class="stat-value" data-count="36" data-unit="k">36k<span>+</span></div>
           <div class="stat-label">Customers worldwide</div>
         </div>
         <div class="stat">
-          <div class="stat-value">14<span>y</span></div>
+          <div class="stat-value" data-count="14">14<span>y</span></div>
           <div class="stat-label">Years of professional experience</div>
         </div>
         <div class="stat">
-          <div class="stat-value">$2M<span>+</span></div>
+          <div class="stat-value" data-count="2" data-prefix="$" data-unit="M">$2M<span>+</span></div>
           <div class="stat-label">Total ThemeForest sales</div>
         </div>
       </div>
@@ -177,7 +181,7 @@
       </div>
 
       <!-- wolf-store -->
-      <div class="project-card reveal reveal-delay-1" style="direction: ltr;">
+      <div class="project-card reveal reveal-delay-1">
         <div class="project-img">
             <a href="https://github.com/wolfthemes/wolf-store" target="_blank">
               <img src="img/wolf-store.png">
@@ -288,6 +292,23 @@
   </div>
 </section>
 
+<!-- Contact -->
+<section id="contact">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Let's work together.</h2>
+    </div>
+    <div class="contact-body reveal">
+      <p class="contact-sub">Available for freelance, contracts, and remote engagements. Based in France (CEST) — flexible across EU and US time zones.</p>
+      <div class="contact-cta">
+        <a href="mailto:constantin.saguin@gmail.com" class="btn btn-primary">Get in touch</a>
+        <a href="https://linkedin.com/in/constantin-saguin" target="_blank" class="btn btn-ghost">LinkedIn →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Footer -->
 <footer>
   <div class="wrap">
@@ -304,16 +325,73 @@
 </footer>
 
 <script>
+  // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
+  const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        revealObserver.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // Nav: transparent → frosted on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  // Nav scroll-spy
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const spyObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navAnchors.forEach(a => a.classList.remove('active'));
+        const match = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => spyObserver.observe(s));
+
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Stat counter animation
+  function animateCounter(el) {
+    const target = +el.dataset.count;
+    const prefix = el.dataset.prefix || '';
+    const unit = el.dataset.unit || '';
+    const duration = 1400;
+    const startTime = performance.now();
+    function tick(now) {
+      const p = Math.min((now - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.firstChild.textContent = prefix + Math.round(ease * target) + unit;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const statList = document.querySelector('.stat-list');
+  if (statList) {
+    const statObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-count]').forEach(animateCounter);
+          statObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    statObserver.observe(statList);
+  }
 </script>
 </body>
 </html>
