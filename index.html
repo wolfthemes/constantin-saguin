@@ -9,7 +9,7 @@
   <meta name="author" content="Constantin Saguin" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://constantin.saguin.com/" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23CC8C5A'>C</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23e07840'>C</text></svg>" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://constantin.saguin.com/" />
@@ -47,63 +47,71 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&family=Urbanist:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- Cursor -->
-<div id="cursor">
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-</div>
-
 <!-- Nav -->
 <nav id="nav">
-  <div class="wrap">
-    <span class="nav-logo">Constantin Saguin</span>
-    <button class="nav-toggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="wrap nav-wrap">
+    <a href="#hero" class="nav-logo">constantin<span class="nav-slash">/</span></a>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><span class="nav-tilde">~/</span>about</a>
+      <a href="#projects"><span class="nav-tilde">~/</span>projects</a>
+      <a href="#skills"><span class="nav-tilde">~/</span>skills</a>
+      <a href="#contact"><span class="nav-tilde">~/</span>contact</a>
+    </div>
+    <div class="nav-badge">
+      <span class="badge-dot"></span>available · remote
     </div>
   </div>
 </nav>
 
 <!-- Hero -->
 <section id="hero">
-  <canvas id="hero-gl"></canvas>
-  <canvas id="three-canvas"></canvas>
-  <div class="hero-vignette"></div>
-  <div class="wrap">
-    <div class="hero-eyebrow">
-      <span class="status-pill">
-        <span class="pulse-dot"></span>
-        Available · Remote · EU timezone
-      </span>
+  <div class="wrap hero-wrap">
+
+    <!-- Left: code editor -->
+    <div class="hero-editor">
+      <div class="editor-bar">
+        <span class="editor-dot dot-r"></span>
+        <span class="editor-dot dot-y"></span>
+        <span class="editor-dot dot-g"></span>
+        <span class="editor-filename">profile.js</span>
+      </div>
+      <div class="editor-body">
+        <div class="code-line"><span class="ln">1</span><span class="c-comment">// senior wordpress engineer — since 2011</span></div>
+        <div class="code-line"><span class="ln">2</span><span class="c-kw">const</span> <span class="c-var">engineer</span> <span class="c-op">=</span> <span class="c-brace">{</span></div>
+        <div class="code-line"><span class="ln">3</span>&nbsp;&nbsp;<span class="c-key">name</span><span class="c-op">:</span> <span class="c-str">"Constantin Saguin"</span><span class="c-dim">,</span></div>
+        <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="c-key">role</span><span class="c-op">:</span> <span class="c-str">"full-stack"</span><span class="c-dim">,</span></div>
+        <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="c-key">experience</span><span class="c-op">:</span> <span class="c-num">14</span><span class="c-dim">,</span></div>
+        <div class="code-line"><span class="ln">6</span>&nbsp;&nbsp;<span class="c-key">customers</span><span class="c-op">:</span> <span class="c-num">36000</span><span class="c-dim">,</span></div>
+        <div class="code-line"><span class="ln">7</span>&nbsp;&nbsp;<span class="c-key">sales</span><span class="c-op">:</span> <span class="c-str">"$2M+"</span><span class="c-dim">,</span></div>
+        <div class="code-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="c-key">builtToLast</span><span class="c-op">:</span> <span class="c-kw">true</span><span class="c-dim">,</span></div>
+        <div class="code-line"><span class="ln">9</span><span class="c-brace">}</span></div>
+        <div class="code-line"><span class="ln">10</span></div>
+        <div class="code-line"><span class="ln">11</span><span class="c-comment">// wolfthemes — power elite author</span></div>
+        <div class="code-line"><span class="ln">12</span><span class="c-prompt">&gt;</span> <span class="c-cmd">hire <span class="c-flag">--remote</span></span><span class="cursor-block"></span></div>
+      </div>
     </div>
-    <h1 class="hero-title">
-      <span class="h1-line"><span class="h1-word">Senior</span></span>
-      <span class="h1-line"><span class="h1-word">WordPress<em class="h1-accent">.</em></span></span>
-      <span class="h1-line"><span class="h1-word">Engineer</span></span>
-    </h1>
-    <div class="hero-meta">
-      <span><span class="meta-dot"></span> 14 years experience</span>
-      <span><span class="meta-dot"></span> Power Elite Author</span>
-      <span><span class="meta-dot"></span> 36,000+ customers</span>
-      <span><span class="meta-dot"></span> $2M+ in sales</span>
+
+    <!-- Right: output -->
+    <div class="hero-output">
+      <div class="output-label">// OUTPUT</div>
+      <h1>Senior<br>WordPress<br><em>engineer</em>.</h1>
+      <p class="hero-bio">Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes — a portfolio of 40+ premium themes and plugins sold worldwide on ThemeForest.</p>
+      <div class="hero-cta">
+        <a href="mailto:constantin.saguin@gmail.com" class="btn btn-primary">$ contact --hire</a>
+        <span class="hero-cta-meta">14 years · Power Elite Author · $2M+ in sales</span>
+      </div>
+      <div class="hero-links">
+        <a href="https://github.com/wolfthemes" target="_blank">github.com/wolfthemes</a>
+        <a href="https://wolfthemes.com" target="_blank">wolfthemes.com</a>
+        <a href="https://themeforest.net/user/wolf-themes" target="_blank">themeforest →</a>
+      </div>
     </div>
-    <p class="hero-bio">Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes — a portfolio of 40+ premium themes and plugins sold worldwide on ThemeForest.</p>
-    <div class="hero-cta">
-      <a href="mailto:constantin.saguin@gmail.com" class="btn btn-primary">Get in touch</a>
-      <a href="https://github.com/wolfthemes" target="_blank" class="btn btn-ghost">GitHub →</a>
-      <a href="https://wolfthemes.com" target="_blank" class="btn btn-ghost">WolfThemes.com →</a>
-      <a href="https://themeforest.net/user/wolf-themes" target="_blank" class="btn btn-ghost">ThemeForest →</a>
-    </div>
+
   </div>
 </section>
 
@@ -111,8 +119,8 @@
 <section id="about">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-num">01</span>
-      <h2>About</h2>
+      <span class="section-path">~/about</span>
+      <span class="section-cmd">$ cat about.md</span>
     </div>
     <div class="about-grid">
       <div class="about-text">
@@ -122,19 +130,19 @@
       </div>
       <div class="stat-list">
         <div class="stat">
-          <div class="stat-value" data-count="40">40<span>+</span></div>
-          <div class="stat-label">Premium themes & plugins shipped</div>
+          <div class="stat-value">40<span>+</span></div>
+          <div class="stat-label">Premium themes &amp; plugins shipped</div>
         </div>
         <div class="stat">
-          <div class="stat-value" data-count="36" data-unit="k">36k<span>+</span></div>
+          <div class="stat-value">36k<span>+</span></div>
           <div class="stat-label">Customers worldwide</div>
         </div>
         <div class="stat">
-          <div class="stat-value" data-count="14">14<span>y</span></div>
+          <div class="stat-value">14<span>y</span></div>
           <div class="stat-label">Years of professional experience</div>
         </div>
         <div class="stat">
-          <div class="stat-value" data-count="2" data-prefix="$" data-unit="M">$2M<span>+</span></div>
+          <div class="stat-value">$2M<span>+</span></div>
           <div class="stat-label">Total ThemeForest sales</div>
         </div>
       </div>
@@ -146,21 +154,24 @@
 <section id="projects">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-num">02</span>
-      <h2>Projects</h2>
+      <span class="section-path">~/projects <span class="section-count">(2)</span></span>
+      <span class="section-cmd">$ ls --latest</span>
     </div>
     <div class="projects-list">
 
-      <div class="project-card">
-        <div class="project-img">
-          <a href="https://preview.wolfthemes.store/sable/landing" target="_blank">
-            <img src="img/sable.png" alt="Sable WordPress Theme">
-          </a>
+      <div class="project-card reveal">
+        <div class="project-card-header">
+          <span class="project-path">wolf/<span class="project-name">sable</span></span>
+          <span class="project-version">ThemeForest Trending</span>
         </div>
-        <div class="project-body">
-          <div class="project-top">
-            <div class="project-tag">WordPress Theme · ThemeForest Trending</div>
-            <h3>Sable</h3>
+        <div class="project-card-body">
+          <div class="project-img">
+            <a href="https://preview.wolfthemes.store/sable/landing" target="_blank">
+              <img src="img/sable.png" alt="Sable WordPress Theme">
+            </a>
+          </div>
+          <div class="project-body">
+            <div class="project-tag">WordPress Theme</div>
             <p class="project-desc">Dark cinematic portfolio theme for creatives and agencies. Built around advanced GSAP-driven animations, a custom Webpack compilation pipeline, and a modern SCSS architecture. Achieved ThemeForest trending status shortly after launch.</p>
             <div class="project-stack">
               <span class="tag">GSAP</span>
@@ -169,21 +180,24 @@
               <span class="tag">PHP 8</span>
               <span class="tag">WordPress</span>
             </div>
+            <a href="https://preview.wolfthemes.store/sable/landing" target="_blank" class="project-link">$ open demo →</a>
           </div>
-          <a href="https://preview.wolfthemes.store/sable/landing" target="_blank" class="project-link">View Demo →</a>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-img">
-          <a href="https://github.com/wolfthemes/wolf-store" target="_blank">
-            <img src="img/wolf-store.png" alt="wolf-store">
-          </a>
+      <div class="project-card reveal">
+        <div class="project-card-header">
+          <span class="project-path">wolf/<span class="project-name">wolf-store</span></span>
+          <span class="project-version project-version-wip">In Active Development</span>
         </div>
-        <div class="project-body">
-          <div class="project-top">
-            <span class="wip-badge">Work in Progress</span>
-            <h3>wolf-store</h3>
+        <div class="project-card-body">
+          <div class="project-img">
+            <a href="https://github.com/wolfthemes/wolf-store" target="_blank">
+              <img src="img/wolf-store.png" alt="wolf-store">
+            </a>
+          </div>
+          <div class="project-body">
+            <div class="project-tag">Open Source</div>
             <p class="project-desc">Decoupled WordPress storefront showcasing my daily production stack. A namespaced PHP 8 plugin exposes a REST API backend consumed by a React frontend. Containerised locally with Docker (WordPress FPM + nginx + MySQL), designed for full marketplace independence.</p>
             <div class="project-stack">
               <span class="tag">PHP 8</span>
@@ -193,8 +207,8 @@
               <span class="tag">WooCommerce</span>
               <span class="tag">nginx</span>
             </div>
+            <a href="https://github.com/wolfthemes/wolf-store" target="_blank" class="project-link">$ open github →</a>
           </div>
-          <a href="https://github.com/wolfthemes/wolf-store" target="_blank" class="project-link">View on GitHub →</a>
         </div>
       </div>
 
@@ -206,51 +220,9 @@
 <section id="skills">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-num">03</span>
-      <h2>Skills</h2>
+      <span class="section-path">~/skills</span>
+      <span class="section-cmd">$ cat skills.txt</span>
     </div>
-  </div>
-  <div class="skills-ticker">
-    <div class="ticker-track">
-      <span>PHP 8</span><span class="sep">·</span>
-      <span>JavaScript ES6+</span><span class="sep">·</span>
-      <span>SCSS / CSS3</span><span class="sep">·</span>
-      <span>TypeScript</span><span class="sep">·</span>
-      <span>WordPress</span><span class="sep">·</span>
-      <span>WooCommerce</span><span class="sep">·</span>
-      <span>React</span><span class="sep">·</span>
-      <span>GSAP</span><span class="sep">·</span>
-      <span>REST API</span><span class="sep">·</span>
-      <span>OOP / PSR-4</span><span class="sep">·</span>
-      <span>Webpack</span><span class="sep">·</span>
-      <span>Docker</span><span class="sep">·</span>
-      <span>Linux / nginx</span><span class="sep">·</span>
-      <span>Git / GitHub Actions</span><span class="sep">·</span>
-      <span>DigitalOcean</span><span class="sep">·</span>
-      <span>WSL</span><span class="sep">·</span>
-      <span>Neovim</span><span class="sep">·</span>
-      <span>WordPress Multisite</span><span class="sep">·</span>
-      <span>PHP 8</span><span class="sep">·</span>
-      <span>JavaScript ES6+</span><span class="sep">·</span>
-      <span>SCSS / CSS3</span><span class="sep">·</span>
-      <span>TypeScript</span><span class="sep">·</span>
-      <span>WordPress</span><span class="sep">·</span>
-      <span>WooCommerce</span><span class="sep">·</span>
-      <span>React</span><span class="sep">·</span>
-      <span>GSAP</span><span class="sep">·</span>
-      <span>REST API</span><span class="sep">·</span>
-      <span>OOP / PSR-4</span><span class="sep">·</span>
-      <span>Webpack</span><span class="sep">·</span>
-      <span>Docker</span><span class="sep">·</span>
-      <span>Linux / nginx</span><span class="sep">·</span>
-      <span>Git / GitHub Actions</span><span class="sep">·</span>
-      <span>DigitalOcean</span><span class="sep">·</span>
-      <span>WSL</span><span class="sep">·</span>
-      <span>Neovim</span><span class="sep">·</span>
-      <span>WordPress Multisite</span><span class="sep">·</span>
-    </div>
-  </div>
-  <div class="wrap">
     <div class="skills-grid">
 
       <div class="skill-group">
@@ -266,7 +238,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title">Frameworks & Libraries</div>
+        <div class="skill-group-title">Frameworks &amp; Libraries</div>
         <div class="skill-items">
           <span class="skill-item highlight">WordPress</span>
           <span class="skill-item highlight">WooCommerce</span>
@@ -279,19 +251,19 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title">Architecture & APIs</div>
+        <div class="skill-group-title">Architecture &amp; APIs</div>
         <div class="skill-items">
           <span class="skill-item highlight">WordPress REST API</span>
           <span class="skill-item highlight">OOP / PSR-4</span>
           <span class="skill-item highlight">Composer / Autoloading</span>
           <span class="skill-item highlight">WP-CLI</span>
-          <span class="skill-item highlight">Hooks & Filters</span>
+          <span class="skill-item highlight">Hooks &amp; Filters</span>
           <span class="skill-item highlight">WordPress Multisite</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-title">Build & Infrastructure</div>
+        <div class="skill-group-title">Build &amp; Infrastructure</div>
         <div class="skill-items">
           <span class="skill-item highlight">Webpack</span>
           <span class="skill-item highlight">Git / GitHub Actions</span>
@@ -329,25 +301,26 @@
 <section id="contact">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-num">04</span>
-      <h2>Let's work<br>together.</h2>
+      <span class="section-path">~/contact</span>
+      <span class="section-cmd">$ whoami --hire</span>
     </div>
     <div class="contact-body">
-      <div class="contact-email">constantin.saguin@gmail.com</div>
+      <h2>Let's work<br><em>together</em>.</h2>
       <p class="contact-sub">Available for freelance, contracts, and remote engagements. Based in France (CEST) — flexible across EU and US time zones.</p>
       <div class="contact-cta">
-        <a href="mailto:constantin.saguin@gmail.com" class="btn btn-primary">Get in touch</a>
+        <a href="mailto:constantin.saguin@gmail.com" class="btn btn-primary">$ contact --hire</a>
         <a href="https://linkedin.com/in/constantin-saguin" target="_blank" class="btn btn-ghost">LinkedIn →</a>
       </div>
+      <div class="contact-email">constantin.saguin@gmail.com</div>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <div class="wrap">
+  <div class="wrap footer-wrap">
     <div class="footer-left">
-      constantin.saguin@gmail.com · France (CEST) · French native · English fluent
+      <span class="footer-path">constantin/</span> · France (CEST) · French native · English fluent
     </div>
     <div class="footer-links">
       <a href="https://github.com/wolfthemes" target="_blank">GitHub</a>
@@ -358,319 +331,21 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
 <script>
-gsap.registerPlugin(ScrollTrigger);
+  /* Scroll reveal */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
 
-/* ── Cursor ── */
-(function () {
-  const dot  = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
-  if (!dot || !ring) return;
-  let mx = -200, my = -200, rx = -200, ry = -200;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    gsap.set(dot, { x: mx, y: my });
-  }, { passive: true });
-
-  document.addEventListener('mousedown', () => ring.classList.add('is-click'));
-  document.addEventListener('mouseup',   () => ring.classList.remove('is-click'));
-
-  (function lerpRing() {
-    rx += (mx - rx) * .12;
-    ry += (my - ry) * .12;
-    gsap.set(ring, { x: rx, y: ry });
-    requestAnimationFrame(lerpRing);
-  })();
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => ring.classList.add('is-hover'));
-    el.addEventListener('mouseleave', () => ring.classList.remove('is-hover'));
-  });
-})();
-
-/* ── Magnetic buttons ── */
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('mousemove', e => {
-    const r = btn.getBoundingClientRect();
-    const x = e.clientX - r.left - r.width  / 2;
-    const y = e.clientY - r.top  - r.height / 2;
-    gsap.to(btn, { x: x * .22, y: y * .22, duration: .35, ease: 'power2.out' });
-  });
-  btn.addEventListener('mouseleave', () => {
-    gsap.to(btn, { x: 0, y: 0, duration: .6, ease: 'elastic.out(1,.5)' });
-  });
-});
-
-/* ── Hero WebGL Shader ── */
-(function () {
-  const canvas = document.getElementById('hero-gl');
-  if (!canvas) return;
-  const gl = canvas.getContext('webgl', { alpha: false, antialias: false });
-  if (!gl) { canvas.style.display = 'none'; return; }
-
-  const VS = `attribute vec2 a;void main(){gl_Position=vec4(a,0,1);}`;
-  const FS = `
-precision highp float;
-uniform float u_t,u_s;
-uniform vec2  u_m,u_r;
-float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
-float vnoise(vec2 p){
-  vec2 i=floor(p),f=fract(p);
-  f=f*f*(3.0-2.0*f);
-  return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);
-}
-float warp(vec2 p){
-  vec2 q=vec2(vnoise(p+u_t*.07),vnoise(p+vec2(5.2,1.3)+u_t*.05));
-  return vnoise(p+2.2*q+u_t*.04);
-}
-void main(){
-  vec2 uv=gl_FragCoord.xy/u_r;
-  float ar=u_r.x/u_r.y;
-  vec2 p=uv*vec2(ar,1.0)*3.2;
-  vec2 mp=u_m*vec2(ar,1.0)*3.2;
-  float md=length(p-mp);
-  float pull=smoothstep(2.8,0.0,md)*u_s;
-  vec2 pw=p+pull*.55*vec2(sin(md*5.5-u_t*1.4),cos(md*5.5-u_t*1.4));
-  float f=warp(pw);
-  float eps=.018;
-  float dx=warp(pw+vec2(eps,0.))-warp(pw-vec2(eps,0.));
-  float dy=warp(pw+vec2(0.,eps))-warp(pw-vec2(0.,eps));
-  float grad=length(vec2(dx,dy));
-  float lum=pow(f,1.9)*.42+grad*.28;
-  lum+=pull*.24;
-  lum*=1.0-length(uv-.5)*.65;
-  vec3 deep =vec3(.028,.082,.150);
-  vec3 ocean=vec3(.055,.170,.270);
-  vec3 amber=vec3(.600,.310,.040);
-  vec3 gold =vec3(.920,.660,.140);
-  vec3 col=mix(deep, ocean,smoothstep(.00,.22,lum));
-  col     =mix(col,  amber,smoothstep(.18,.52,lum));
-  col     =mix(col,  gold, smoothstep(.46,1.00,lum));
-  col+=vec3(.90,.56,.08)*pull*.45;
-  gl_FragColor=vec4(clamp(col,0.0,1.0),1.0);
-}`;
-
-  function mkShader(type, src) {
-    const s = gl.createShader(type);
-    gl.shaderSource(s, src); gl.compileShader(s);
-    return s;
-  }
-  const prog = gl.createProgram();
-  gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VS));
-  gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FS));
-  gl.linkProgram(prog);
-  gl.useProgram(prog);
-  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer());
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
-  const aLoc = gl.getAttribLocation(prog, 'a');
-  gl.enableVertexAttribArray(aLoc);
-  gl.vertexAttribPointer(aLoc, 2, gl.FLOAT, false, 0, 0);
-  const uT = gl.getUniformLocation(prog, 'u_t');
-  const uS = gl.getUniformLocation(prog, 'u_s');
-  const uM = gl.getUniformLocation(prog, 'u_m');
-  const uR = gl.getUniformLocation(prog, 'u_r');
-
-  let mx = .5, my = .5, tx = .5, ty = .5, ms = 0, msTarget = 0;
-  const heroEl = document.getElementById('hero');
-  heroEl.addEventListener('mousemove', e => {
-    const r = heroEl.getBoundingClientRect();
-    tx = (e.clientX - r.left) / r.width;
-    ty = 1.0 - (e.clientY - r.top) / r.height;
-    msTarget = 1;
-  }, { passive: true });
-  heroEl.addEventListener('mouseleave', () => { msTarget = 0; });
-
-  function resize() {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    canvas.width  = canvas.offsetWidth  * dpr;
-    canvas.height = canvas.offsetHeight * dpr;
-    gl.viewport(0, 0, canvas.width, canvas.height);
-  }
-  window.addEventListener('resize', resize, { passive: true });
-  resize();
-
-  let running = true;
-  const obs = new IntersectionObserver(([e]) => { running = e.isIntersecting; }, { threshold: 0 });
-  obs.observe(heroEl);
-
-  function loop(t) {
-    if (running) {
-      mx += (tx - mx) * .12; my += (ty - my) * .12; ms += (msTarget - ms) * .07;
-      gl.uniform1f(uT, t * .001);
-      gl.uniform1f(uS, ms);
-      gl.uniform2f(uM, mx, my);
-      gl.uniform2f(uR, canvas.width, canvas.height);
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
-    }
-    requestAnimationFrame(loop);
-  }
-  requestAnimationFrame(loop);
-})();
-
-/* ── Three.js Particle Constellation ── */
-(function () {
-  const canvas = document.getElementById('three-canvas');
-  if (!canvas || !window.THREE || window.innerWidth < 700) return;
-
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  renderer.setClearColor(0x000000, 0);
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
-  const scene  = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, .1, 100);
-  camera.position.z = 6;
-
-  const COUNT = 90;
-  const pos = new Float32Array(COUNT * 3);
-  const vel = [];
-  for (let i = 0; i < COUNT; i++) {
-    pos[i*3]   = (Math.random() - .5) * 16;
-    pos[i*3+1] = (Math.random() - .5) * 10;
-    pos[i*3+2] = (Math.random() - .5) * 4;
-    vel.push({ x: (Math.random() - .5) * .0035, y: (Math.random() - .5) * .0025 });
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-
-  const mat = new THREE.PointsMaterial({ color: 0xCC8C5A, size: .055, transparent: true, opacity: .45, sizeAttenuation: true });
-  scene.add(new THREE.Points(geo, mat));
-
-  let tmx = 0, tmy = 0, camX = 0, camY = 0, active = true;
-  document.addEventListener('mousemove', e => {
-    tmx = (e.clientX / innerWidth  - .5) * 2;
-    tmy = -(e.clientY / innerHeight - .5) * 2;
-  }, { passive: true });
-
-  const obs = new IntersectionObserver(([e]) => { active = e.isIntersecting; }, { threshold: 0 });
-  obs.observe(document.getElementById('hero'));
-
-  window.addEventListener('resize', () => {
-    camera.aspect = innerWidth / innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(innerWidth, innerHeight);
-  }, { passive: true });
-
-  (function tick() {
-    requestAnimationFrame(tick);
-    if (!active) return;
-    const p = geo.attributes.position.array;
-    for (let i = 0; i < COUNT; i++) {
-      p[i*3]   += vel[i].x; if (Math.abs(p[i*3])   > 8) vel[i].x *= -1;
-      p[i*3+1] += vel[i].y; if (Math.abs(p[i*3+1]) > 5) vel[i].y *= -1;
-    }
-    geo.attributes.position.needsUpdate = true;
-    camX += (tmx * .6 - camX) * .04;
-    camY += (tmy * .4 - camY) * .04;
-    camera.position.x = camX;
-    camera.position.y = camY;
-    renderer.render(scene, camera);
-  })();
-})();
-
-/* ── Nav ── */
-(function () {
-  const nav    = document.querySelector('nav');
-  const toggle = document.querySelector('.nav-toggle');
-  const links  = document.querySelector('.nav-links');
-
+  /* Nav scroll state */
+  const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', scrollY > 30);
+    nav.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
-
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    links.classList.toggle('open');
-  });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    toggle.classList.remove('open');
-    links.classList.remove('open');
-  }));
-
-  const navAs = links.querySelectorAll('a[href^="#"]');
-  new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      navAs.forEach(a => a.classList.remove('active'));
-      const m = links.querySelector(`a[href="#${e.target.id}"]`);
-      if (m) m.classList.add('active');
-    });
-  }, { threshold: .35 }).observe;
-
-  // Simple scroll-spy
-  const sections = document.querySelectorAll('section[id]');
-  const spyObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navAs.forEach(a => a.classList.remove('active'));
-        const m = links.querySelector(`a[href="#${e.target.id}"]`);
-        if (m) m.classList.add('active');
-      }
-    });
-  }, { threshold: .35 });
-  sections.forEach(s => spyObs.observe(s));
-})();
-
-/* ── Hero reveal on load ── */
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-
-  gsap.set('.h1-word', { y: '110%' });
-  gsap.set(['.hero-eyebrow', '.hero-meta', '.hero-bio', '.hero-cta', '.nav-logo'], { opacity: 0, y: 16 });
-
-  gsap.timeline({ delay: .15 })
-    .to('.nav-logo',    { opacity: 1, y: 0, duration: .5, ease: 'power2.out' })
-    .to('.hero-eyebrow',{ opacity: 1, y: 0, duration: .5, ease: 'power2.out' }, '-=.3')
-    .to('.h1-word',     { y: 0, duration: 1.1, stagger: .1, ease: 'power4.out' }, '-=.2')
-    .to('.hero-meta',   { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, '-=.55')
-    .to('.hero-bio',    { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, '-=.4')
-    .to('.hero-cta',    { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, '-=.4');
-})();
-
-/* ── Scroll Animations ── */
-(function () {
-  function fromScroll(targets, from, opts = {}) {
-    gsap.utils.toArray(targets).forEach((el, i) => {
-      gsap.from(el, {
-        ...from,
-        duration: opts.duration ?? .7,
-        delay: i * (opts.stagger ?? 0),
-        ease: opts.ease ?? 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: opts.start ?? 'top 88%',
-          once: true
-        }
-      });
-    });
-  }
-
-  fromScroll('.section-header', { opacity: 0, x: -24 }, { duration: .65 });
-  fromScroll('.about-text p',   { opacity: 0, y: 22 },  { stagger: .09, start: 'top 90%' });
-  fromScroll('.stat',           { opacity: 0, x: 24 },  { stagger: .1, duration: .55 });
-  fromScroll('.project-card',   { opacity: 0, y: 44 },  { stagger: .1, duration: .8 });
-  fromScroll('.skill-group',    { opacity: 0, y: 18 },  { stagger: .065, duration: .45, ease: 'power2.out', start: 'top 92%' });
-  fromScroll('.contact-body',   { opacity: 0, y: 30 },  { duration: .7, start: 'top 85%' });
-
-  /* Stat counters */
-  document.querySelectorAll('[data-count]').forEach(el => {
-    const target  = +el.dataset.count;
-    const prefix  = el.dataset.prefix || '';
-    const unit    = el.dataset.unit   || '';
-    const suffix  = el.querySelector('span')?.outerHTML || '';
-    const obj = { val: 0 };
-    gsap.to(obj, {
-      val: target, duration: 1.9, ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-      onUpdate() { el.innerHTML = prefix + Math.round(obj.val) + unit + suffix; }
-    });
-  });
-})();
 </script>
 </body>
 </html>
