@@ -2,9 +2,18 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Knowledge base
+Main KB: `/mnt/c/Users/Constantin/dev/wolf-claude-memory/`
+Read relevant wiki pages before starting work. Key pages:
+- `wiki/products/constantin.saguin.com/constantin.saguin.com.md` — this site's current state, design system, and content
+
 ## What this is
 
 Personal portfolio site at [constantin.saguin.com](https://constantin.saguin.com). Dead simple static single-page HTML/CSS with no dependencies, no build step, and no package manager.
+
+## Audience
+
+Primary audience is **technical recruiters and hiring managers** — not developers. Copy should lead with impact, scope, and recognizable buzzwords (WordPress, WooCommerce, React, PHP, Gutenberg). Avoid architecture jargon that only makes sense to engineers ("namespaced", "CSS custom properties", "PSR-4"). When writing or editing any copy, ask: would a recruiter scanning for 10 seconds understand what this person built and why it matters?
 
 ## Previewing
 
