@@ -21,4 +21,4 @@ jobs:
             git pull origin master
             cp index.html ~/www/constantin.saguin.com/public_html/index.html
             cp style.css ~/www/constantin.saguin.com/public_html/style.css
-            cp -r img ~/www/constantin.saguin.com/public_html/img
+            cp -r img/* ~/www/constantin.saguin.com/public_html/img/
