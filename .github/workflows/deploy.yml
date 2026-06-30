@@ -22,3 +22,5 @@ jobs:
             cp index.html ~/www/constantin.saguin.com/public_html/index.html
             cp style.css ~/www/constantin.saguin.com/public_html/style.css
             cp -r img/* ~/www/constantin.saguin.com/public_html/img/
+            cd /home/u806-3ucq2u3ym7q9/www/constantin.saguin.com/public_html/
+            curl -D - -sSX PURGE http://127.0.0.1/* -H "Host: constantin.saguin.com"
