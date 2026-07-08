@@ -342,12 +342,31 @@ section { border-top: 1px solid var(--border); }
 }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
 .tag {
+	position: relative;
 	font-family: var(--mono);
 	font-size: 12px;
 	padding: 6px 12px;
 	border: 1px solid var(--border2);
 	border-radius: 100px;
 	color: var(--dim);
+}
+.tag::before, .tag::after,
+.chip::before, .chip::after {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-family: var(--mono);
+	color: var(--accent);
+	opacity: 0;
+	transition: opacity .25s ease, transform .25s ease;
+	pointer-events: none;
+}
+.tag::before, .chip::before { content: '['; left: -2px; transform: translate(4px, -50%); }
+.tag::after, .chip::after { content: ']'; right: -2px; transform: translate(-4px, -50%); }
+.tag:hover::before, .chip:hover::before,
+.tag:hover::after, .chip:hover::after {
+	opacity: 1;
+	transform: translateY(-50%);
 }
 .project-links { display: flex; gap: 24px; flex-wrap: wrap; }
 .project-link {
@@ -374,6 +393,7 @@ section { border-top: 1px solid var(--border); }
 }
 .skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip {
+	position: relative;
 	font-family: var(--mono);
 	font-size: 13px;
 	padding: 7px 13px;
