@@ -155,7 +155,7 @@ nav {
 	line-height: 1.15;
 	letter-spacing: -.03em;
 	margin: 0 0 32px;
-	max-width: 950px;
+	/* max-width: 950px; */
 }
 #hero h1 em {
 	font-style: italic;
