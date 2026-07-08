@@ -115,7 +115,7 @@ nav {
 
 /* ── Hero ── */
 #hero {
-	padding: 110px 56px 130px;
+	padding: 110px 0 130px;
 	position: relative;
 }
 .hero-badge {
@@ -482,7 +482,7 @@ h1[data-reveal].visible .hero-line-inner { transform: translateY(0); }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-	.wrap, .section-inner, #hero, #contact .section-inner { padding-left: 24px; padding-right: 24px; }
+	.wrap, .section-inner, #contact .section-inner { padding-left: 24px; padding-right: 24px; }
 	.nav-links { display: none; }
 	.about-grid, .project, .project.flip {
 		grid-template-columns: 1fr;
@@ -494,4 +494,7 @@ h1[data-reveal].visible .hero-line-inner { transform: translateY(0); }
 }
 @media (max-width: 560px) {
 	.skills-grid { grid-template-columns: 1fr; }
+	.stat-list { grid-template-columns: 1fr; }
+	.stat { padding: 28px 24px; }
+	.stat-value { font-size: 42px; }
 }
