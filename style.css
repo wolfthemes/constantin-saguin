@@ -259,6 +259,21 @@ section { border-top: 1px solid var(--border); }
 	margin: 0 0 20px;
 }
 .about-text p:last-child { margin-bottom: 0; }
+.wolf-signature { margin-top: 40px; }
+.wolf-signature svg {
+	width: 120px;
+	height: auto;
+	display: block;
+	color: var(--ink);
+	overflow: visible;
+}
+.wolf-signature svg path {
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 10px; /* SVG user units — reads as ~1.26px at 120px display width */
+}
 .stat-list {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
