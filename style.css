@@ -82,7 +82,7 @@ nav {
 	transition: color .2s;
 }
 .nav-links a:hover { color: var(--accent); }
-.nav-links a.btn:hover { color: var(--bg); }
+.nav-links a.btn { background: var(--accent); color: #fff; }
 .btn {
 	font-size: 13px;
 	font-weight: 600;
@@ -93,7 +93,7 @@ nav {
 	display: inline-block;
 	transition: background .2s;
 }
-.btn:hover { background: var(--accent); }
+.btn:hover { background: var(--accent); color: #fff; }
 .btn-lg {
 	font-size: 15px;
 	padding: 16px 30px;
@@ -417,6 +417,7 @@ section { border-top: 1px solid var(--border); scroll-margin-top: var(--nav-heig
 .chip-dim { color: var(--dim2); }
 
 /* ── Contact ── */
+#contact { background: #000; }
 #contact .section-inner { padding: 130px 56px; }
 #contact h2 {
 	font-size: clamp(44px, 6vw, 76px);
