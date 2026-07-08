@@ -23,5 +23,7 @@ jobs:
             cp style.css ~/www/constantin.saguin.com/public_html/style.css
             mkdir -p ~/www/constantin.saguin.com/public_html/img
             cp -r img/* ~/www/constantin.saguin.com/public_html/img/
+            mkdir -p ~/www/constantin.saguin.com/public_html/js
+            cp -r js/* ~/www/constantin.saguin.com/public_html/js/
             cd /home/u806-3ucq2u3ym7q9/www/constantin.saguin.com/public_html/
             curl -D - -sSX PURGE http://127.0.0.1/* -H "Host: constantin.saguin.com"

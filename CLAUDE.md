@@ -9,7 +9,7 @@ Read relevant wiki pages before starting work. Key pages:
 
 ## What this is
 
-Personal portfolio site at [constantin.saguin.com](https://constantin.saguin.com). Dead simple static single-page HTML/CSS with no dependencies, no build step, and no package manager.
+Personal portfolio site at [constantin.saguin.com](https://constantin.saguin.com). Static single-page site, no build step and no package manager — but it does load one runtime dependency (Lenis, for smooth scrolling) as a native ES module straight from a CDN. See "Structure" below.
 
 ## Audience
 
@@ -17,7 +17,7 @@ Primary audience is **technical recruiters and hiring managers** — not develop
 
 ## Previewing
 
-Open `index.html` directly in a browser — no server required.
+Needs a local server now — browsers block ES module imports (`js/main.js` and its `import`s) over `file://`. From the repo root: `python3 -m http.server 8000` (or any static server) and open `http://localhost:8000/`.
 
 ## Deployment
 
@@ -25,7 +25,10 @@ Pushing to `master` triggers `.github/workflows/deploy.yml`, which SSHs into Sit
 
 ## Structure
 
-Everything lives in `index.html`: all HTML, all CSS (inside `<style>`), and all JS (inside `<script>`). The `img/` folder holds the two project screenshots (`sable.png`, `wolf-store.png`).
+- `index.html` — all HTML, plus the Google Fonts `<link>`s and one `<script type="module" src="js/main.js">`. No inline `<style>`/`<script>` blocks — CSS lives in `style.css`, JS lives in `js/`.
+- `style.css` — single stylesheet, design tokens as CSS custom properties on `:root` (see below).
+- `js/` — small single-purpose ES modules (`smooth-scroll.js`, `craft-counter.js`, `typewriter.js`, `scroll-reveal.js`, `stat-counters.js`, `signature-reveal.js`), wired together by `js/main.js`. No bundler: the browser loads these as native ES modules directly. `smooth-scroll.js` imports Lenis from a pinned jsDelivr CDN URL — the only external runtime dependency, and it's loaded the same way as a `<script type="module">` import map would, just without one.
+- `img/` — project screenshots, the CV PDF, and site SVGs (signature, logos).
 
 ## Design tokens
 
