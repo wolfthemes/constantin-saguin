@@ -61,7 +61,10 @@
       <a href="#work">Work</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <a href="img/Constantin-Saguin-Senior-WP-Dev-CV-EN.pdf" target="_blank" class="btn" download>Download CV</a>
+      <a href="img/Constantin-Saguin-Senior-WP-Dev-CV-EN.pdf" target="_blank" class="btn btn-icon" download>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 11l6 6 6-6"/><path d="M5 21h14"/></svg>
+        Download CV
+      </a>
     </div>
   </div>
 </nav>
@@ -74,12 +77,18 @@
       <span class="label">Available for hire — remote, EU / US</span>
     </div>
 
-    <h1 data-reveal>Senior <em>WordPress</em> engineer,<br>14 years in the craft.</h1>
+    <h1 data-reveal>
+      <span class="hero-line"><span class="hero-line-inner">Senior <em>WordPress</em> engineer,</span></span>
+      <span class="hero-line"><span class="hero-line-inner">14 years in the craft.</span></span>
+    </h1>
 
     <p class="hero-bio" id="hero-type"></p>
 
     <div class="hero-cta">
-      <a href="mailto:constantin.saguin@gmail.com" class="btn btn-lg">Let's talk</a>
+      <a href="mailto:constantin.saguin@gmail.com" class="btn btn-lg btn-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Let's talk
+      </a>
       <a href="#work" class="btn btn-ghost btn-lg">See the work</a>
       <div class="hero-links">
         <a href="https://github.com/wolfthemes" target="_blank">github</a>
@@ -88,7 +97,7 @@
       </div>
     </div>
 
-    <img src="img/wp-logo.png" alt="" class="hero-watermark" aria-hidden="true">
+    <img src="img/wp-logo.svg" alt="" class="hero-watermark" aria-hidden="true">
   </div>
 </section>
 
@@ -97,7 +106,10 @@
   <div class="section-inner">
     <div class="about-grid">
       <div data-reveal>
-        <div class="section-label">01 — About</div>
+        <div class="section-header">
+          <span class="section-path">~/about</span>
+          <span class="section-cmd">$ cat about.md</span>
+        </div>
         <h2 class="section-title">Based in Alsace, France — building WordPress products since 2011.</h2>
         <div class="about-text">
           <p>What started as freelance client work turned into WolfThemes — a one-person studio selling premium themes and plugins to musicians, artists and creative studios worldwide.</p>
@@ -131,7 +143,10 @@
 <section id="work">
   <div class="section-inner">
     <div data-reveal style="margin-bottom: 70px;">
-      <div class="section-label">02 — Selected work</div>
+      <div class="section-header">
+        <span class="section-path">~/projects <span style="color: var(--dim2);">(3)</span></span>
+        <span class="section-cmd">$ ls --latest</span>
+      </div>
       <h2 class="section-title">Three projects that show how I think.</h2>
     </div>
 
@@ -152,7 +167,10 @@
           <span class="tag">React</span>
           <span class="tag">WooCommerce</span>
         </div>
-        <a href="https://github.com/wolfthemes/wolf-store" target="_blank" class="project-link">Open on GitHub →</a>
+        <div class="project-links">
+          <a href="https://wolfthemes.com" target="_blank" class="project-link">View website →</a>
+          <a href="https://github.com/wolfthemes/wolf-store" target="_blank" class="project-link">Open on GitHub →</a>
+        </div>
       </div>
     </div>
 
@@ -201,7 +219,10 @@
 <section id="skills">
   <div class="section-inner">
     <div data-reveal style="margin-bottom: 60px;">
-      <div class="section-label">03 — Skills</div>
+      <div class="section-header">
+        <span class="section-path">~/skills</span>
+        <span class="section-cmd">$ cat skills.txt</span>
+      </div>
       <h2 class="section-title">The toolbox, end to end.</h2>
     </div>
     <div class="skills-grid" data-reveal>
@@ -281,7 +302,10 @@
 <!-- Contact -->
 <section id="contact">
   <div class="section-inner" data-reveal>
-    <div class="section-label">04 — Contact</div>
+    <div class="section-header">
+      <span class="section-path">~/contact</span>
+      <span class="section-cmd">$ whoami --hire</span>
+    </div>
     <h2 class="section-title">Let's build something worth shipping.</h2>
     <p class="contact-sub">Open to senior full-time roles as well as select freelance and contract work. Based in France (CEST), flexible across EU and US time zones.</p>
     <div class="contact-cta">
@@ -302,9 +326,13 @@
 </section>
 
 <script>
-  /* Typing effect for hero subhead */
+  /* Typing effect for hero subhead — measure the finished text first so
+     the reserved space matches exactly and nothing shifts while it types. */
   const heroType = document.getElementById('hero-type');
   const heroText = "Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes — a portfolio of 40+ premium themes sold worldwide on ThemeForest.";
+  heroType.textContent = heroText;
+  heroType.style.minHeight = heroType.offsetHeight + 'px';
+  heroType.textContent = '';
   let i = 0;
   (function tick() {
     heroType.textContent = heroText.slice(0, i) ;
