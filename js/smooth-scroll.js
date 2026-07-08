@@ -11,6 +11,18 @@ export function initSmoothScroll() {
   }
   requestAnimationFrame(raf);
 
+  // Keep the CSS scroll-margin-top (used for keyboard/fragment navigation)
+  // and the Lenis scroll offset (used for click-driven scrollTo) in sync
+  // with the sticky nav's real height instead of a guessed constant.
+  const nav = document.querySelector('nav');
+  const setNavHeight = () => {
+    document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`);
+  };
+  if (nav) {
+    setNavHeight();
+    window.addEventListener('resize', setNavHeight);
+  }
+
   // Route in-page anchor links (nav, hero CTAs) through Lenis instead of
   // native jump-scrolling, so they get the same easing as wheel/touch input.
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
@@ -18,7 +30,7 @@ export function initSmoothScroll() {
       const target = document.querySelector(link.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      lenis.scrollTo(target);
+      lenis.scrollTo(target, { offset: nav ? -nav.offsetHeight : 0 });
     });
   });
 
