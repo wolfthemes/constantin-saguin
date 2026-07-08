@@ -47,103 +47,79 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <!-- Nav -->
-<nav id="nav">
+<nav>
   <div class="wrap nav-wrap">
-    <a href="#hero" class="nav-logo">constantin saguin<span class="nav-slash">/</span></a>
+    <a href="#hero" class="nav-logo"><span class="tilde">~/</span>constantin-saguin</a>
     <div class="nav-links">
-      <a href="#about"><span class="nav-tilde">~/</span>about</a>
-      <a href="#projects"><span class="nav-tilde">~/</span>projects</a>
-      <a href="#skills"><span class="nav-tilde">~/</span>skills</a>
-      <a href="#contact"><span class="nav-tilde">~/</span>contact</a>
-    </div>
-    <div class="nav-badge">
-      <span class="badge-dot"></span>available · remote
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="img/Constantin-Saguin-Senior-WP-Dev-CV-EN.pdf" target="_blank" class="btn" download>Download CV</a>
     </div>
   </div>
 </nav>
 
 <!-- Hero -->
 <section id="hero">
-  <div class="wrap hero-wrap">
-
-    <!-- Left: code editor -->
-    <div class="hero-editor">
-      <div class="editor-bar">
-        <span class="editor-dot dot-r"></span>
-        <span class="editor-dot dot-y"></span>
-        <span class="editor-dot dot-g"></span>
-        <span class="editor-filename">profile.js</span>
-      </div>
-      <div class="editor-body">
-        <div class="code-line"><span class="ln">1</span><span class="c-comment">// senior wordpress engineer — since 2011</span></div>
-        <div class="code-line"><span class="ln">2</span><span class="c-kw">const</span>&nbsp; <span class="c-var">engineer</span> <span class="c-op">=</span> <span class="c-brace">{</span></div>
-        <div class="code-line"><span class="ln">3</span>&nbsp;&nbsp;<span class="c-key">name</span><span class="c-op">:</span> <span class="c-str">"Constantin Saguin"</span><span class="c-dim">,</span></div>
-        <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="c-key">role</span><span class="c-op">:</span> <span class="c-str">"full-stack"</span><span class="c-dim">,</span></div>
-        <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="c-key">experience</span><span class="c-op">:</span> <span class="c-num">14</span><span class="c-dim">,</span></div>
-        <div class="code-line"><span class="ln">6</span>&nbsp;&nbsp;<span class="c-key">customers</span><span class="c-op">:</span> <span class="c-num">36000</span><span class="c-dim">,</span></div>
-        <div class="code-line"><span class="ln">7</span>&nbsp;&nbsp;<span class="c-key">sales</span><span class="c-op">:</span> <span class="c-str">"$2M+"</span><span class="c-dim">,</span></div>
-        <div class="code-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="c-key">builtToLast</span><span class="c-op">:</span> <span class="c-kw">true</span><span class="c-dim">,</span></div>
-        <div class="code-line"><span class="ln">9</span><span class="c-brace">}</span></div>
-        <div class="code-line"><span class="ln">10</span></div>
-        <div class="code-line"><span class="ln">11</span><span class="c-comment">// wolfthemes — power elite author</span></div>
-        <div class="code-line"><span class="ln">12</span><span class="c-prompt">&gt;</span> <span class="c-cmd">hire <span class="c-flag">--remote</span></span><span class="cursor-block"></span></div>
-      </div>
+  <div class="wrap">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      <span class="label">Available for hire — remote, EU / US</span>
     </div>
 
-    <!-- Right: output -->
-    <div class="hero-output">
-      <div class="output-label">// OUTPUT</div>
-      <h1>Senior<br>WordPress<br><em>engineer</em>.</h1>
-      <p class="hero-bio">Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes — a portfolio of 40+ premium themes and plugins sold worldwide on ThemeForest.</p>
-      <div class="hero-cta">
-        <a href="mailto:constantin.saguin@gmail.com" class="btn btn-primary">$ contact --hire</a>
-        <a href="img/Constantin-Saguin-Senior-WP-Dev-CV-EN.pdf" target="_blank" class="btn btn-ghost" download>$ download --cv</a>
-        <span class="hero-cta-meta">14 years · Power Elite Author · $2M+ in sales</span>
-      </div>
+    <h1 data-reveal>Senior <em>WordPress</em> engineer,<br>14 years in the craft.</h1>
+
+    <p class="hero-bio" id="hero-type"></p>
+
+    <div class="hero-cta">
+      <a href="mailto:constantin.saguin@gmail.com" class="btn btn-lg">Let's talk</a>
+      <a href="#work" class="btn btn-ghost btn-lg">See the work</a>
       <div class="hero-links">
-        <a href="https://github.com/wolfthemes" target="_blank">github.com/wolfthemes</a>
-        <a href="https://wolfthemes.com" target="_blank">wolfthemes.com</a>
-        <a href="https://themeforest.net/user/wolf-themes" target="_blank">themeforest →</a>
+        <a href="https://github.com/wolfthemes" target="_blank">github</a>
+        <a href="https://www.linkedin.com/in/constantin-saguin/" target="_blank">linkedin</a>
+        <a href="https://themeforest.net/user/wolf-themes" target="_blank">themeforest</a>
       </div>
     </div>
 
+    <img src="img/wp-logo.png" alt="" class="hero-watermark" aria-hidden="true">
   </div>
 </section>
 
 <!-- About -->
 <section id="about">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-path">~/about</span>
-      <span class="section-cmd">$ cat about.md</span>
-    </div>
+  <div class="section-inner">
     <div class="about-grid">
-      <div class="about-text">
-        <p>Based in Alsace, France. I've been building WordPress products professionally since 2011. Starting with freelance client work, then pivoting to commercial theme development under the WolfThemes brand.</p>
-        <p>My work spans the full stack: custom PHP architectures, REST API design, React frontends, performance-tuned Linux deployments, and CI/CD pipelines. I self-manage a DigitalOcean server running 50+ live demo sites on WordPress Multisite.</p>
-        <p>Currently expanding into decoupled WordPress applications and exploring AI-assisted development workflows for support and content operations.</p>
+      <div data-reveal>
+        <div class="section-label">01 — About</div>
+        <h2 class="section-title">Based in Alsace, France — building WordPress products since 2011.</h2>
+        <div class="about-text">
+          <p>What started as freelance client work turned into WolfThemes — a one-person studio selling premium themes and plugins to musicians, artists and creative studios worldwide.</p>
+          <p>My work spans the full stack: custom PHP architectures, REST API design, React front ends, performance-tuned Linux deployments and CI/CD. I self-manage a DigitalOcean server running 50+ live sites on WordPress Multisite.</p>
+          <p>Lately I've been expanding into decoupled WordPress applications and exploring AI-assisted workflows for support and content operations.</p>
+        </div>
       </div>
-      <div class="stat-list">
+      <div class="stat-list" data-reveal>
         <div class="stat">
-          <div class="stat-value">40<span>+</span></div>
+          <div class="stat-value"><span class="stat-num" data-count="40">0</span><span>+</span></div>
           <div class="stat-label">Premium themes &amp; plugins shipped</div>
         </div>
         <div class="stat">
-          <div class="stat-value">36k<span>+</span></div>
+          <div class="stat-value"><span class="stat-num" data-count="36">0</span><span>k+</span></div>
           <div class="stat-label">Customers worldwide</div>
         </div>
         <div class="stat">
-          <div class="stat-value">14<span>y</span></div>
-          <div class="stat-label">Years of professional experience</div>
+          <div class="stat-value"><span class="stat-num" data-count="14">0</span><span>y</span></div>
+          <div class="stat-label">Professional experience</div>
         </div>
         <div class="stat">
-          <div class="stat-value">$2M<span>+</span></div>
+          <div class="stat-value">$<span class="stat-num" data-count="2">0</span><span>M+</span></div>
           <div class="stat-label">Total ThemeForest sales</div>
         </div>
       </div>
@@ -151,172 +127,150 @@
   </div>
 </section>
 
-<!-- Projects -->
-<section id="projects">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-path">~/projects <span class="section-count">(3)</span></span>
-      <span class="section-cmd">$ ls --latest</span>
+<!-- Work -->
+<section id="work">
+  <div class="section-inner">
+    <div data-reveal style="margin-bottom: 70px;">
+      <div class="section-label">02 — Selected work</div>
+      <h2 class="section-title">Three projects that show how I think.</h2>
     </div>
-    <div class="projects-list">
 
-      <div class="project-card reveal">
-        <div class="project-card-header">
-          <span class="project-path">wolf/<span class="project-name">wolfthemes-storefront</span></span>
-          <span class="project-version project-version-wip">In Active Development</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-img">
-            <a href="https://github.com/wolfthemes/wolf-store" target="_blank">
-              <img src="img/wolf-store.jpg" alt="WolfThemes Storefront">
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-tag">Open Source · Full WordPress Project</div>
-            <p class="project-desc">Full redesign of wolfthemes.com — replacing ThemeForest as the primary distribution channel for WolfThemes. Built end-to-end: a custom FSE block theme, a PHP 8 plugin powering a bespoke theme marketplace via REST API and React frontend, and a Gutenberg block library (stats, testimonials, pricing tables, countdown, and more) used across the storefront.</p>
-            <div class="project-stack">
-              <span class="tag">PHP 8</span>
-              <span class="tag">FSE / Gutenberg</span>
-              <span class="tag">REST API</span>
-              <span class="tag">React</span>
-              <span class="tag">Docker</span>
-              <span class="tag">WooCommerce</span>
-            </div>
-            <a href="https://github.com/wolfthemes/wolf-store" target="_blank" class="project-link">$ open github →</a>
-          </div>
-        </div>
+    <div class="project" data-reveal>
+      <div class="project-img">
+        <a href="https://github.com/wolfthemes/wolf-store" target="_blank">
+          <img src="img/wolf-store.jpg" alt="WolfThemes storefront">
+        </a>
       </div>
-
-      <div class="project-card reveal">
-        <div class="project-card-header">
-          <span class="project-path">wolf/<span class="project-name">sable</span></span>
-          <span class="project-version">ThemeForest Trending</span>
+      <div class="project-body">
+        <div class="project-eyebrow">01 / In active development</div>
+        <h3>WolfThemes Storefront</h3>
+        <p>A full redesign of wolfthemes.com, replacing ThemeForest as the primary distribution channel. Built end-to-end: a custom FSE block theme, a PHP 8 plugin powering a bespoke theme marketplace via REST API, a React storefront, and a Gutenberg block library used across the site.</p>
+        <div class="tags">
+          <span class="tag">PHP 8</span>
+          <span class="tag">FSE / Gutenberg</span>
+          <span class="tag">REST API</span>
+          <span class="tag">React</span>
+          <span class="tag">WooCommerce</span>
         </div>
-        <div class="project-card-body">
-          <div class="project-img">
-            <a href="https://preview.wolfthemes.store/sable/landing" target="_blank">
-              <img src="img/sable.png" alt="Sable WordPress Theme">
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-tag">WordPress Theme</div>
-            <p class="project-desc">Dark cinematic portfolio theme for creatives and agencies. Built around advanced GSAP-driven animations, a custom Webpack compilation pipeline, and a modern SCSS architecture. Achieved ThemeForest trending status shortly after launch.</p>
-            <div class="project-stack">
-              <span class="tag">GSAP</span>
-              <span class="tag">SCSS</span>
-              <span class="tag">Webpack</span>
-              <span class="tag">PHP 8</span>
-              <span class="tag">WordPress</span>
-            </div>
-            <a href="https://preview.wolfthemes.store/sable/landing" target="_blank" class="project-link">$ open demo →</a>
-          </div>
-        </div>
+        <a href="https://github.com/wolfthemes/wolf-store" target="_blank" class="project-link">Open on GitHub →</a>
       </div>
+    </div>
 
-      <div class="project-card reveal">
-        <div class="project-card-header">
-          <span class="project-path">wolf/<span class="project-name">guty</span></span>
-          <span class="project-version project-version-wip">In Active Development</span>
-        </div>
-        <div class="project-card-body">
-          <div class="project-img">
-            <a href="https://github.com/wolfthemes/guty" target="_blank" style="display:flex;align-items:center;justify-content:center;background:var(--surface2);aspect-ratio:16/9;text-decoration:none;">
-              <span style="font-family:var(--font-mono);font-size:clamp(3rem,8vw,5rem);font-weight:700;color:var(--green);letter-spacing:-0.03em;">guty</span>
-            </a>
-          </div>
-          <div class="project-body">
-            <div class="project-tag">Open Source · Dev Tool</div>
-            <p class="project-desc">A custom TypeScript CLI compiler that lets you write WordPress Gutenberg block templates as typed JSX components instead of hand-editing raw block markup. Compiles <code>.tsx</code> files into WordPress FSE templates, template parts, and PHP patterns — solving a real authoring pain point in Gutenberg development.</p>
-            <div class="project-stack">
-              <span class="tag">TypeScript</span>
-              <span class="tag">Gutenberg</span>
-              <span class="tag">FSE</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">Compiler</span>
-            </div>
-            <a href="https://github.com/wolfthemes/guty" target="_blank" class="project-link">$ open github →</a>
-          </div>
-        </div>
+    <div class="project flip" data-reveal>
+      <div class="project-img">
+        <a href="https://preview.wolfthemes.store/sable/landing" target="_blank">
+          <img src="img/sable.png" alt="Sable WordPress theme">
+        </a>
       </div>
+      <div class="project-body">
+        <div class="project-eyebrow">02 / ThemeForest trending</div>
+        <h3>Sable</h3>
+        <p>A dark, cinematic portfolio theme for creatives and agencies, built around advanced GSAP-driven animations, a custom Webpack compilation pipeline and a modern SCSS architecture. Hit ThemeForest's trending list shortly after launch.</p>
+        <div class="tags">
+          <span class="tag">GSAP</span>
+          <span class="tag">SCSS</span>
+          <span class="tag">Webpack</span>
+          <span class="tag">PHP 8</span>
+          <span class="tag">WordPress</span>
+        </div>
+        <a href="https://preview.wolfthemes.store/sable/landing" target="_blank" class="project-link">Open demo →</a>
+      </div>
+    </div>
 
+    <div class="project" data-reveal>
+      <div class="project-placeholder">
+        <span>guty<em>_</em></span>
+      </div>
+      <div class="project-body">
+        <div class="project-eyebrow">03 / Open source dev tool</div>
+        <h3>Guty</h3>
+        <p>A custom TypeScript CLI compiler that lets you write WordPress Gutenberg block templates as typed JSX components instead of hand-editing raw block markup. Compiles .tsx files into WordPress FSE templates, template parts, and patterns — solving a real authoring pain point in Gutenberg development.</p>
+        <div class="tags">
+          <span class="tag">TypeScript</span>
+          <span class="tag">Gutenberg</span>
+          <span class="tag">FSE</span>
+          <span class="tag">Node.js</span>
+        </div>
+        <a href="https://github.com/wolfthemes/guty" target="_blank" class="project-link">Open on GitHub →</a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Skills -->
 <section id="skills">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-path">~/skills</span>
-      <span class="section-cmd">$ cat skills.txt</span>
+  <div class="section-inner">
+    <div data-reveal style="margin-bottom: 60px;">
+      <div class="section-label">03 — Skills</div>
+      <h2 class="section-title">The toolbox, end to end.</h2>
     </div>
-    <div class="skills-grid">
+    <div class="skills-grid" data-reveal>
 
-      <div class="skill-group">
+      <div>
         <div class="skill-group-title">Languages</div>
         <div class="skill-items">
-          <span class="skill-item highlight">PHP 8</span>
-          <span class="skill-item highlight">JavaScript ES6+</span>
-          <span class="skill-item highlight">SCSS / CSS3</span>
-          <span class="skill-item">HTML5</span>
-          <span class="skill-item">SQL</span>
+          <span class="chip">PHP 8</span>
+          <span class="chip">JavaScript ES6+</span>
+          <span class="chip">SCSS / CSS3</span>
+          <span class="chip">HTML5</span>
+          <span class="chip">SQL</span>
         </div>
       </div>
 
-      <div class="skill-group">
-        <div class="skill-group-title">Frameworks &amp; Libraries</div>
+      <div>
+        <div class="skill-group-title">Frameworks &amp; libraries</div>
         <div class="skill-items">
-          <span class="skill-item highlight">WordPress</span>
-          <span class="skill-item highlight">WooCommerce</span>
-          <span class="skill-item highlight">React</span>
-          <span class="skill-item highlight">GSAP</span>
-          <span class="skill-item highlight">Elementor</span>
-          <span class="skill-item highlight">Gutenberg / FSE</span>
-          <span class="skill-item">jQuery</span>
-          <span class="skill-item">ACF</span>
+          <span class="chip">WordPress</span>
+          <span class="chip">WooCommerce</span>
+          <span class="chip">React</span>
+          <span class="chip">GSAP</span>
+          <span class="chip">Elementor</span>
+          <span class="chip">Gutenberg / FSE</span>
+          <span class="chip">jQuery</span>
+          <span class="chip">ACF</span>
         </div>
       </div>
 
-      <div class="skill-group">
+      <div>
         <div class="skill-group-title">Architecture &amp; APIs</div>
         <div class="skill-items">
-          <span class="skill-item highlight">WordPress REST API</span>
-          <span class="skill-item highlight">OOP / PSR-4</span>
-          <span class="skill-item highlight">Composer / Autoloading</span>
-          <span class="skill-item highlight">WP-CLI</span>
-          <span class="skill-item highlight">Hooks &amp; Filters</span>
-          <span class="skill-item highlight">WordPress Multisite</span>
+          <span class="chip">WordPress REST API</span>
+          <span class="chip">OOP / PSR-4</span>
+          <span class="chip">Composer / Autoloading</span>
+          <span class="chip">WP-CLI</span>
+          <span class="chip">Hooks &amp; Filters</span>
+          <span class="chip">WordPress Multisite</span>
         </div>
       </div>
 
-      <div class="skill-group">
-        <div class="skill-group-title">Build &amp; Infrastructure</div>
+      <div>
+        <div class="skill-group-title">Build &amp; infrastructure</div>
         <div class="skill-items">
-          <span class="skill-item highlight">Webpack</span>
-          <span class="skill-item highlight">Git / GitHub Actions</span>
-          <span class="skill-item highlight">Linux / nginx</span>
-          <span class="skill-item">DigitalOcean</span>
-          <span class="skill-item">BunnyCDN</span>
-          <span class="skill-item">Bedrock / Capistrano</span>
+          <span class="chip">Webpack</span>
+          <span class="chip">Git / GitHub Actions</span>
+          <span class="chip">Linux / nginx</span>
+          <span class="chip">DigitalOcean</span>
+          <span class="chip">BunnyCDN</span>
+          <span class="chip">Bedrock / Capistrano</span>
         </div>
       </div>
 
-      <div class="skill-group">
-        <div class="skill-group-title">Dev Environment</div>
+      <div>
+        <div class="skill-group-title">Dev environment</div>
         <div class="skill-items">
-          <span class="skill-item highlight">Neovim / VS Code</span>
-          <span class="skill-item highlight">WSL</span>
-          <span class="skill-item highlight">Docker</span>
-          <span class="skill-item highlight">npm / BrowserSync</span>
+          <span class="chip">Neovim / VS Code</span>
+          <span class="chip">WSL</span>
+          <span class="chip">Docker</span>
+          <span class="chip">npm / BrowserSync</span>
         </div>
       </div>
 
-      <div class="skill-group">
+      <div>
         <div class="skill-group-title">Familiar with</div>
         <div class="skill-items">
-          <span class="skill-item">TypeScript</span>
-          <span class="skill-item">WPML</span>
-          <span class="skill-item">VitePress</span>
+          <span class="chip chip-dim">TypeScript</span>
+          <span class="chip chip-dim">WPML</span>
+          <span class="chip chip-dim">VitePress</span>
         </div>
       </div>
 
@@ -326,53 +280,70 @@
 
 <!-- Contact -->
 <section id="contact">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-path">~/contact</span>
-      <span class="section-cmd">$ whoami --hire</span>
+  <div class="section-inner" data-reveal>
+    <div class="section-label">04 — Contact</div>
+    <h2 class="section-title">Let's build something worth shipping.</h2>
+    <p class="contact-sub">Open to senior full-time roles as well as select freelance and contract work. Based in France (CEST), flexible across EU and US time zones.</p>
+    <div class="contact-cta">
+      <a href="mailto:constantin.saguin@gmail.com" class="btn btn-invert btn-lg">constantin.saguin@gmail.com</a>
+      <a href="https://www.linkedin.com/in/constantin-saguin/" target="_blank" class="contact-link">LinkedIn →</a>
     </div>
-    <div class="contact-body">
-      <h2>Let's work<br><em>together</em>.</h2>
-      <p class="contact-sub">Available for freelance, contracts, and remote engagements. Based in France (CEST) — flexible across EU and US time zones.</p>
-      <div class="contact-cta">
-        <a href="mailto:constantin.saguin@gmail.com" class="btn btn-primary">$ contact --hire</a>
-        <a href="https://linkedin.com/in/constantin-saguin" target="_blank" class="btn btn-ghost">LinkedIn →</a>
+
+    <div class="footer">
+      <div class="footer-left">Constantin Saguin — France (CEST) — French native, English fluent</div>
+      <div class="footer-links">
+        <a href="https://github.com/wolfthemes" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/constantin-saguin/" target="_blank">LinkedIn</a>
+        <a href="https://wolfthemes.com" target="_blank">WolfThemes</a>
+        <a href="https://themeforest.net/user/wolf-themes" target="_blank">ThemeForest</a>
       </div>
-      <div class="contact-email">constantin.saguin@gmail.com</div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <div class="wrap footer-wrap">
-    <div class="footer-left">
-      <span class="footer-path">constantin/</span> · France (CEST) · French native · English fluent
-    </div>
-    <div class="footer-links">
-      <a href="https://github.com/wolfthemes" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/constantin-saguin" target="_blank">LinkedIn</a>
-      <a href="https://wolfthemes.com" target="_blank">WolfThemes</a>
-      <a href="https://themeforest.net/user/wolf-themes" target="_blank">ThemeForest</a>
-    </div>
-  </div>
-</footer>
-
 <script>
+  /* Typing effect for hero subhead */
+  const heroType = document.getElementById('hero-type');
+  const heroText = "Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes — a portfolio of 40+ premium themes sold worldwide on ThemeForest.";
+  let i = 0;
+  (function tick() {
+    heroType.textContent = heroText.slice(0, i) ;
+    heroType.innerHTML += '<span class="cursor">|</span>';
+    if (i <= heroText.length) {
+      i += 3;
+      requestAnimationFrame(() => setTimeout(tick, 8));
+    }
+  })();
+
   /* Scroll reveal */
-  const reveals = document.querySelectorAll('.reveal');
+  const reveals = document.querySelectorAll('[data-reveal]');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
   reveals.forEach(el => observer.observe(el));
 
-  /* Nav scroll state */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+  /* Count-up stats on scroll */
+  const counters = document.querySelectorAll('.stat-num');
+  const countUp = (el) => {
+    const target = parseInt(el.dataset.count, 10);
+    const duration = 1200;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { countUp(e.target); counterObserver.unobserve(e.target); }
+    });
+  }, { threshold: .4 });
+  counters.forEach(el => counterObserver.observe(el));
 </script>
 </body>
 </html>
+
