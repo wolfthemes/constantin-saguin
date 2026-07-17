@@ -23,6 +23,16 @@ Currently expanding into decoupled WordPress applications and exploring AI-assis
 
 ## Projects
 
+### guty
+
+A custom TypeScript CLI compiler that lets you write WordPress Gutenberg block templates as typed JSX components instead of hand-editing raw block markup. Compiles `.tsx` files into WordPress FSE templates, template parts, and patterns — solving a real authoring pain point in Gutenberg development.
+
+Technologies: TypeScript, Node.js CLI, WordPress Gutenberg/FSE.
+
+GitHub: https://github.com/wolfthemes/guty
+
+npm: https://www.npmjs.com/package/@csag/guty
+
 ### Sable
 
 Dark cinematic portfolio theme for creatives and agencies. Built around advanced GSAP-driven animations, a custom Webpack compilation pipeline, and a modern SCSS architecture. Achieved ThemeForest trending status shortly after launch.

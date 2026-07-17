@@ -23,6 +23,7 @@ jobs:
             cp style.css ~/www/constantin.saguin.com/public_html/style.css
             cp constantin-saguin-wp-dev.pdf ~/www/constantin.saguin.com/public_html/constantin-saguin-wp-dev.pdf
             cp robots.txt ~/www/constantin.saguin.com/public_html/robots.txt
+            cp index.md ~/www/constantin.saguin.com/public_html/index.md
             mkdir -p ~/www/constantin.saguin.com/public_html/img
             cp -r img/* ~/www/constantin.saguin.com/public_html/img/
             mkdir -p ~/www/constantin.saguin.com/public_html/js
