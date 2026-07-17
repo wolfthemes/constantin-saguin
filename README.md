@@ -1,6 +1,12 @@
 # Constantin Saguin
 
-Senior WordPress engineer, 14 years in the craft. Founder of WolfThemes — 40+ premium themes and plugins, 36,000+ customers, $2M+ in ThemeForest sales.
+Senior WordPress Engineer — 14+ years building commercial WordPress products and production-grade web platforms, used by 36,000+ customers worldwide.
+
+**Core:** WordPress architecture, custom themes & plugins, modern PHP (OOP, Composer), WordPress REST API, WooCommerce, WordPress Multisite
+**Frontend:** JavaScript ES6+, React, SCSS, Webpack, Gutenberg / Full Site Editing (FSE)
+**Infrastructure & DevOps:** Linux, Nginx, Docker, CI/CD, Git, GitHub Actions, WP-CLI, Bedrock, Capistrano
+**Performance & SEO:** Core Web Vitals, CDN, advanced caching, technical SEO
+**APIs & Integrations:** Stripe, Mailchimp, third-party service integrations
 
 Full profile, projects, and skills: [index.md](index.md)
 
