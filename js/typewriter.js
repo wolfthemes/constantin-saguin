@@ -4,7 +4,7 @@ export function initTypewriter() {
   const heroType = document.getElementById('hero-type');
   if (!heroType) return;
 
-  const heroText = "Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes — a portfolio of 40+ premium themes sold worldwide on ThemeForest.";
+  const heroText = "Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes, building and scaling commercial WordPress products used by 36,000+ customers worldwide.";
   heroType.textContent = heroText;
   heroType.style.minHeight = heroType.offsetHeight + 'px';
   heroType.textContent = '';
