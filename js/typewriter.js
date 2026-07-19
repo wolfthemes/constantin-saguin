@@ -4,7 +4,7 @@ export function initTypewriter() {
   const heroType = document.getElementById('hero-type');
   if (!heroType) return;
 
-  const heroText = "Full-stack WordPress engineer with deep expertise in modern PHP, WooCommerce architecture, REST APIs, and React. Founder of WolfThemes, building and scaling commercial WordPress products used by 36,000+ customers worldwide.";
+  const heroText = "From scaling modern infrastructures to engineering smooth interactive experiences, I build modern WordPress products designed for longevity and performance. Founder of WolfThemes (36,000+ clients). Currently looking to bring my expertise to a world-class remote agency where I can solve complex engineering challenges alongside a top-notch team.";
   heroType.textContent = heroText;
   heroType.style.minHeight = heroType.offsetHeight + 'px';
   heroType.textContent = '';
