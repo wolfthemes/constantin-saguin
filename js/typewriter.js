@@ -4,7 +4,7 @@ export function initTypewriter() {
   const heroType = document.getElementById('hero-type');
   if (!heroType) return;
 
-  const heroText = "I design and scale premium themes, plugins, and complex WooCommerce solutions. Creator of WolfThemes: products used by 36,000+ customers and generating $2M+ in revenue.";
+  const heroText = "I design and scale Awwwards-nominated themes, custom plugins, and enterprise WooCommerce solutions. Creator of WolfThemes—trusted by 36,000+ customers with $2M+ in lifetime sales.";
   heroType.textContent = heroText;
   heroType.style.minHeight = heroType.offsetHeight + 'px';
   heroType.textContent = '';
