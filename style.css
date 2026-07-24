@@ -163,6 +163,7 @@ nav {
 	margin: 0 0 48px;
 	min-height: 4.8em;
 }
+.hero-bio a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .hero-bio .cursor {
 	color: var(--accent);
 	animation: blink-cursor 1s step-start infinite;
@@ -488,7 +489,7 @@ h1[data-reveal].visible .hero-line-inner { transform: translateY(0); }
 /* ── Responsive ── */
 @media (max-width: 900px) {
 	.wrap, .section-inner, #contact .section-inner { padding-left: 24px; padding-right: 24px; }
-	.nav-links { display: none; }
+	.nav-links a:not(.btn) { display: none; }
 	.about-grid, .project, .project.flip {
 		grid-template-columns: 1fr;
 		gap: 40px;
