@@ -179,8 +179,10 @@ nav {
 	gap: 20px;
 	flex-wrap: wrap;
 }
-#hero .hero-cta .btn:not(.btn-ghost) { background: var(--accent); color: #fff; }
-#hero .hero-cta .btn:not(.btn-ghost):hover { background: var(--ink); color: var(--bg); }
+#hero .hero-cta .btn:not(.btn-ghost),
+#contact .contact-cta .btn { background: var(--accent); color: #fff; }
+#hero .hero-cta .btn:not(.btn-ghost):hover,
+#contact .contact-cta .btn:hover { background: var(--ink); color: var(--bg); }
 #hero .hero-cta[data-reveal] { transition-delay: .36s; }
 .hero-links {
 	display: flex;
