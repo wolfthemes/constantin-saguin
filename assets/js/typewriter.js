@@ -4,7 +4,7 @@ export function initTypewriter() {
   const heroType = document.getElementById('hero-type');
   if (!heroType) return;
 
-  const heroText = "I design and scale Awwwards-nominated themes, custom plugins, and enterprise WooCommerce solutions. Creator of WolfThemes, trusted by 36,000+ customers with $2M+ in lifetime sales.";
+  const heroText = "I architect and scale WordPress products: Awwwards-nominated premium themes, custom plugins, and WooCommerce systems for creators, small businesses, and enterprises. Founder of WolfThemes, trusted by 36,000+ customers with $2M+ in lifetime sales.";
   const linkLabel = "Awwwards-nominated";
   const linkStart = heroText.indexOf(linkLabel);
   const linkEnd = linkStart + linkLabel.length;
