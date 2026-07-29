@@ -510,4 +510,11 @@ h1[data-reveal].visible .hero-line-inner { transform: translateY(0); }
 	.stat-list { grid-template-columns: 1fr; }
 	.stat { padding: 28px 24px; }
 	.stat-value { font-size: 42px; }
+	.footer { align-items: flex-start; }
+	.footer-links {
+		width: 100%;
+		flex-wrap: wrap;
+		column-gap: 16px;
+		row-gap: 12px;
+	}
 }
