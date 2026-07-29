@@ -21,21 +21,22 @@ Needs a local server now — browsers block ES module imports (`js/main.js` and 
 
 ## Deployment
 
-Pushing to `master` triggers `.github/workflows/deploy.yml`, which SSHs into SiteGround and runs `git pull` + copies `index.html` and `img/` to the web root. There is no staging environment.
+Pushing to `master` triggers `.github/workflows/deploy.yml`, which SSHs into SiteGround and runs `git pull` + copies `index.html` and `assets/` to the web root. There is no staging environment.
 
 ## Structure
 
-- `index.html` — all HTML, plus the Google Fonts `<link>`s and one `<script type="module" src="js/main.js">`. No inline `<style>`/`<script>` blocks — CSS lives in `style.css`, JS lives in `js/`.
-- `style.css` — single stylesheet, design tokens as CSS custom properties on `:root` (see below).
-- `js/` — small single-purpose ES modules (`smooth-scroll.js`, `craft-counter.js`, `typewriter.js`, `scroll-reveal.js`, `stat-counters.js`, `signature-reveal.js`), wired together by `js/main.js`. No bundler: the browser loads these as native ES modules directly. `smooth-scroll.js` imports Lenis from a pinned jsDelivr CDN URL — the only external runtime dependency, and it's loaded the same way as a `<script type="module">` import map would, just without one.
-- `img/` — project screenshots, the CV PDF, and site SVGs (signature, logos).
+- `index.html` — all HTML, plus the Google Fonts `<link>`s and one `<script type="module" src="assets/js/main.js">`. No inline `<style>`/`<script>` blocks — CSS lives in `assets/css/`, JS lives in `assets/js/`.
+- `assets/css/style.css` — single stylesheet, design tokens as CSS custom properties on `:root` (see below).
+- `assets/js/` — small single-purpose ES modules (`smooth-scroll.js`, `typewriter.js`, `scroll-reveal.js`, `stat-counters.js`, `signature-reveal.js`), wired together by `assets/js/main.js`. No bundler: the browser loads these as native ES modules directly. `smooth-scroll.js` imports Lenis from a pinned jsDelivr CDN URL — the only external runtime dependency.
+- `assets/img/` — project screenshots and site SVGs (signature, logos).
+- `assets/fonts/` — locally stored font files.
 
 ## Design tokens
 
-All colours, fonts, and spacing primitives are defined as CSS custom properties on `:root` at the top of the `<style>` block. Modify those variables first before touching individual rules.
+All colours, fonts, and spacing primitives are defined as CSS custom properties on `:root` at the top of the stylesheet. Modify those variables first before touching individual rules.
 
 ## Code style
 
 - Indentation: **tabs**, width 4 (enforced by `.editorconfig`)
 - Line endings: LF
-- Fonts: `DM Mono` (monospace/body) and `Syne` (headings), loaded from Google Fonts
+- Fonts: `Urbanist` (headings), `Inter` (sans-serif), `EB Garamond` (hero emphasis), and `JetBrains Mono` (monospace), loaded from Google Fonts

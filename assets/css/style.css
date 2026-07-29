@@ -1,20 +1,21 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-	--bg:        #0d0d0d;
+	--bg:        #1E1E1E;
 	--ink:       #F3EEE4;
-	--accent:    #D3A043;
-	--green:     #3FA85C;
+	--accent:    #97a8ff;
+	--green:     #ccffda;
 	--border:    #2A2620;
 	--border2:   #4A4438;
 	--chip:      #211E17;
 	--body:      #fff4d7;
-	--dim:       #ede7da;
+	--dim:       #eddcda;
 	--dim2:      #cbc0a9;
-	/* Headline font — swap this one value to try alternatives (e.g. 'Newsreader', 'Fraunces', 'Space Grotesk') */
-	--serif: 'Urbanist', sans-serif;
-	--sans:  'Archivo', sans-serif;
-	--mono:  'IBM Plex Mono', monospace;
+	--radius: 4px;
+	--serif: 'EB Garamond', serif;
+	--heading: 'Urbanist', sans-serif;
+	--sans:  'Inter', sans-serif;
+	--mono:  'JetBrains Mono', monospace;
 }
 
 html { scroll-behavior: smooth; }
@@ -65,7 +66,7 @@ nav {
 	padding-bottom: 22px;
 }
 .nav-logo {
-	font-family: var(--serif);
+	font-family: var(--heading);
 	font-style: italic;
 	font-size: 22px;
 	font-weight: 900;
@@ -91,7 +92,7 @@ nav {
 	color: var(--bg);
 	background: var(--ink);
 	padding: 10px 20px;
-	border-radius: 100px;
+	border-radius: var(--radius);
 	display: inline-block;
 	transition: background .2s;
 }
@@ -124,7 +125,7 @@ nav {
 	align-items: center;
 	gap: 9px;
 	padding: 7px 14px;
-	border: 1px solid var(--border);
+	/* border: 1px solid var(--border); */
 	border-radius: 100px;
 	margin-bottom: 40px;
 }
@@ -142,8 +143,8 @@ nav {
 	text-transform: uppercase;
 }
 #hero h1 {
-	font-family: var(--serif);
-	font-weight: 800;
+	font-family: var(--heading);
+	font-weight: 700;
 	font-size: clamp(48px, 6.4vw, 96px);
 	line-height: 1.15;
 	letter-spacing: -.03em;
@@ -151,9 +152,9 @@ nav {
 	/* max-width: 950px; */
 }
 #hero h1 em {
-	font-family: 'Newsreader', serif;
-	font-weight: 600;
-	font-style: italic;
+	font-family: var(--serif);
+	font-weight: 500;
+	font-style: normal;
 	color: var(--accent);
 }
 .hero-bio {
@@ -234,10 +235,10 @@ section { border-top: 1px solid var(--border); scroll-margin-top: var(--nav-heig
 .section-cmd {
 	font-family: var(--mono);
 	font-size: 12px;
-	color: var(--accent);
+	color: var(--green);
 }
 .section-title {
-	font-family: var(--serif);
+	font-family: var(--heading);
 	font-weight: 700;
 	font-size: 42px;
 	letter-spacing: -.01em;
@@ -289,7 +290,7 @@ strong {
 }
 .stat { background: var(--bg); padding: 40px 32px; }
 .stat-value {
-	font-family: var(--serif);
+	font-family: var(--heading);
 	font-size: 56px;
 	font-weight: 800;
 	line-height: 1;
@@ -335,21 +336,21 @@ strong {
 	justify-content: center;
 }
 .project-placeholder span {
-	font-family: var(--serif);
+	font-family: var(--heading);
 	font-style: italic;
 	font-size: 72px;
 	color: var(--ink);
 }
 .project-placeholder span em { color: var(--accent); font-style: normal; }
 .project-eyebrow {
-	font-family: var(--serif);
+	font-family: var(--heading);
 	font-style: italic;
 	font-size: 15px;
 	color: var(--accent);
 	margin-bottom: 14px;
 }
 .project-body h3 {
-	font-family: var(--serif);
+	font-family: var(--heading);
 	font-weight: 500;
 	font-size: 32px;
 	margin: 0 0 16px;
@@ -424,7 +425,7 @@ strong {
 .chip-dim { background: var(--chip); color: var(--dim); }
 
 /* ── Contact ── */
-#contact { background: #000; }
+#contact { background: #0d0d0d; }
 #contact .section-inner { padding: 130px 56px; }
 #contact h2 {
 	font-size: clamp(44px, 6vw, 76px);
