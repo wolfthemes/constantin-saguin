@@ -18,7 +18,7 @@ export function initTypewriter() {
     const before = slice.slice(0, linkStart);
     const linked = slice.slice(linkStart, Math.min(i, linkEnd));
     const after = i > linkEnd ? slice.slice(linkEnd) : '';
-    return `${before}<a href="${linkHref}" target="_blank">${linked}</a>${after}`;
+    return `${before}<a class="hero-awwwards-link" href="${linkHref}" target="_blank">${linked}</a>${after}`;
   }
 
   heroType.textContent = heroText;
