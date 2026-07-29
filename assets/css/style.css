@@ -606,6 +606,7 @@ h1[data-reveal].visible .hero-line-inner { transform: translateY(0); }
 	.gallery-banner { height: 560px; }
 }
 @media (max-width: 560px) {
+	.nav-links a.btn { display: none; }
 	.skills-grid { grid-template-columns: 1fr; }
 	.stat-list { grid-template-columns: 1fr; }
 	.stat { padding: 28px 24px; }
