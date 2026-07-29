@@ -8,9 +8,9 @@
 	--border:    #2A2620;
 	--border2:   #4A4438;
 	--chip:      #161616;
-	--body:      #fff4d7;
+	--body:      #d5d5d5;
 	--dim:       #eddcda;
-	--dim2:      #cbc0a9;
+	--dim2:      #a9b2cb;
 	--radius: 4px;
 	--serif: 'EB Garamond', serif;
 	--heading: 'Urbanist', sans-serif;
@@ -67,10 +67,10 @@ nav {
 }
 .nav-logo {
 	font-family: var(--heading);
-	font-style: italic;
+	/* font-style: italic; */
 	font-size: 22px;
-	font-weight: 900;
-	letter-spacing: -.01em;
+	font-weight: 600;
+	letter-spacing: .02em;
 }
 .nav-logo .tilde { color: var(--accent); }
 .nav-links {
@@ -87,8 +87,8 @@ nav {
 	transition: color .2s;
 }
 .nav-links a:hover { color: var(--accent); }
-.nav-links a.btn { background: var(--accent); color: #fff; }
-.nav-links a.btn:hover { background: #fff; color: var(--bg); }
+.nav-links a.btn { background: var(--ink); color: var(--bg); }
+.nav-links a.btn:hover { background: var(--accent); color: #fff; }
 .btn {
 	font-size: 13px;
 	font-weight: 600;
@@ -179,6 +179,8 @@ nav {
 	gap: 20px;
 	flex-wrap: wrap;
 }
+#hero .hero-cta .btn:not(.btn-ghost) { background: var(--accent); color: #fff; }
+#hero .hero-cta .btn:not(.btn-ghost):hover { background: var(--ink); color: var(--bg); }
 #hero .hero-cta[data-reveal] { transition-delay: .36s; }
 .hero-links {
 	display: flex;
@@ -353,6 +355,7 @@ strong {
 	font-size: 15px;
 	color: var(--accent);
 	margin-bottom: 14px;
+	font-weight: 500;
 }
 .project-body h3 {
 	font-family: var(--heading);
