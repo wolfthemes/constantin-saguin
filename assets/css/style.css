@@ -271,14 +271,15 @@ section { border-top: 1px solid var(--border); scroll-margin-top: var(--nav-heig
 .gallery-banner {
 	height: 100vh;
 	overflow: hidden;
-	background: #0d0d0d;
+	/* background: #0d0d0d; */
+	padding-top: 20px;
 }
 .gallery-grid {
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 	grid-template-rows: repeat(3, minmax(0, 1fr));
 	height: 100%;
-	gap: 10px;
+	gap: 20px;
 }
 .gallery-item {
 	grid-column: span 4;
