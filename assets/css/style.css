@@ -412,6 +412,9 @@ strong {
 	margin-bottom: 90px;
 	border-bottom: 1px solid var(--border);
 }
+.project-body {
+	max-width: 500px;
+}
 .project:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
 .project.flip { grid-template-columns: .9fr 1.1fr; }
 .project-img {
